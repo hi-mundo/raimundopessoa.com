@@ -46,12 +46,20 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      padding: 24px;
     }
 
     h1 {
       font-size: clamp(2.8rem, 5vw, 4.2rem);
       font-weight: 700;
       letter-spacing: -1px;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 0.95rem;
+      opacity: 0.75;
+      line-height: 1.6;
     }
 
     .cursor {
@@ -129,21 +137,33 @@
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Hi Mundo!<span class="cursor"></span></h1>
+    <div class="hero">
+      <h1>Hi Mundo!<span class="cursor"></span></h1>
+      <p>Nerdola as a Service.</p>
+      <p>Infraestrutura, DevOps & SRE sem teatro corporativo.</p>
+    </div>
   </header>
 
   <section>
     <div class="content">
       <h2>Sobre</h2>
       <p>
-        Hi Mundo é meu produto indie e também minha empresa — onde engenharia,
-        confiabilidade e arquitetura de sistemas viram soluções reais em DevOps e SRE.
+        Hi Mundo é meu laboratório, meu produto indie e minha empresa.
       </p>
       <p>
-        Fundado por Raimundo Pessoa — nerdola profissional de infraestrutura, fã de Metal Gear Solid,
-        crítico não solicitado de adaptações mal feitas, apreciador de filmes feitos com o orçamento
-        de um pastel e um suco, e entusiasta incurável de CTFs e engenharia reversa.
+        Aqui engenharia de infraestrutura não vira buzzword —
+        vira sistema resiliente, previsível e rápido.
+      </p>
+      <p>
+        Fundado por Raimundo Pessoa.
+        Nerdola profissional de DevOps & SRE,
+        veterano de incidentes em produção,
+        obcecado por confiabilidade, performance e arquitetura limpa.
+      </p>
+      <p style="opacity:0.6;">
+        Menos hype. Mais engenharia.
       </p>
     </div>
   </section>
@@ -151,12 +171,16 @@
   <section>
     <div class="content lista">
       <h2>Consultoria</h2>
+      <p>Serviços que evitam frases como “não sei por que caiu”:</p>
+      <br/>
       <p>Arquitetura Cloud & Kubernetes</p>
       <p>DevOps & Platform Engineering</p>
       <p>SRE & Confiabilidade</p>
       <p>Observabilidade & Performance</p>
       <p>Automação & Infraestrutura como Código</p>
-      <p style="margin-top:14px; opacity:0.5;">(sem fumaça, sem buzzword, só engenharia)</p>
+      <p style="margin-top:14px; opacity:0.5;">
+        Nerdola as Code. Sem fumaça. Só runtime saudável.
+      </p>
     </div>
   </section>
 
@@ -164,10 +188,11 @@
     <div class="content">
       <h2>Cloud & Parcerias</h2>
       <p>
-        Projetos envolvendo Google Cloud e Cloudflare — da licença à implantação,
-        passando por otimização, confiabilidade e manutenção contínua.
+        Google Cloud & Cloudflare — da arquitetura à operação contínua.
       </p>
-      <p style="opacity:0.5;">latência baixa, dor de cabeça menor</p>
+      <p style="opacity:0.5;">
+        Latência baixa. Surpresas menores.
+      </p>
     </div>
   </section>
 
@@ -176,12 +201,20 @@
       <h2>Artigos & Projetos</h2>
       <img src="/img/oputo.png" class="logo" />
       <p>
-        Odisseia do Puto — tecnologia, cultura geek e reflexões levemente ácidas sobre o caos digital.
+        Odisseia do Puto
       </p>
       <p>
-        <a href="https://odisseiadoputo.cc" target="_blank">Acessar artigos →</a>
+        Tecnologia, cultura geek e reflexões levemente ácidas
+        sobre o caos digital.
       </p>
-      <p style="opacity:0.45;">opiniões fortes, cache opcional</p>
+      <p>
+        <a href="https://odisseiadoputo.cc" target="_blank">
+          Acessar artigos →
+        </a>
+      </p>
+      <p style="opacity:0.45;">
+        opiniões fortes, cache opcional
+      </p>
     </div>
   </section>
 
@@ -189,23 +222,25 @@
     <div class="content">
       <h2>Contato</h2>
       <p>
+        Precisa de alguém que trate produção como coisa séria?
+      </p>
+      <p>
         <a href="https://www.linkedin.com/in/raimundo-pessoa-80a2b7157/" target="_blank">
           LinkedIn / Raimundo Pessoa
         </a>
       </p>
-      <p style="opacity:0.45;">ping aberto (•‿•)</p>
+      <p style="opacity:0.45;">Ping aberto.</p>
     </div>
   </section>
 
   <footer>
-    <p>Hi Mundo — Engenharia, DevOps & SRE</p>
+    <p>Hi Mundo — Nerdola as a Service</p>
     <p style="margin-top:8px; opacity:0.4;">No alerts triggered.</p>
   </footer>
 
   <div class="easter-egg" id="egg"></div>
 
   <script>
-    // Konami Code 😏
     const sequence = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
     let position = 0;
 
@@ -213,7 +248,8 @@
       if (e.key === sequence[position]) {
         position++;
         if (position === sequence.length) {
-          document.getElementById('egg').innerText = '→ Easter egg unlocked: Tactical Espionage DevOps';
+          document.getElementById('egg').innerText =
+            '→ Easter egg unlocked: Nerdola Ops Mode';
           position = 0;
         }
       } else {
@@ -221,5 +257,6 @@
       }
     });
   </script>
+
 </body>
 </html>
