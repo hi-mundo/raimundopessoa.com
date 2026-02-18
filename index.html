@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hi Mundo!</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bege: #d6cbb8;
+      --preto: #111111;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Ubuntu Mono', monospace;
+      background: var(--bege);
+      color: var(--preto);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.35), transparent 40%),
+                  radial-gradient(circle at 80% 70%, rgba(255,255,255,0.25), transparent 45%),
+                  radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15), transparent 60%);
+      filter: blur(40px);
+      animation: fogMove 25s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes fogMove {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(-30px,20px,0) scale(1.05); }
+      100% { transform: translate3d(0,0,0) scale(1); }
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .cursor {
+      display: inline-block;
+      margin-left: 12px;
+      width: 28px;
+      height: 5px;
+      background: var(--preto);
+      vertical-align: middle;
+      transform: translateY(11px);
+      border-radius: 2px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    section {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .content { max-width: 760px; }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 22px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      opacity: 0.75;
+      margin-bottom: 14px;
+    }
+
+    .lista p { margin-bottom: 6px; }
+
+    .logo {
+      width: 120px;
+      margin: 18px auto;
+      display: block;
+      opacity: 0.9;
+    }
+
+    a {
+      color: var(--preto);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,0.35);
+    }
+
+    a:hover { opacity: 0.6; }
+
+    footer {
+      text-align: center;
+      padding: 60px 24px 80px;
+      font-size: 0.85rem;
+      opacity: 0.5;
+    }
+
+    .easter-egg {
+      position: fixed;
+      bottom: 20px;
+      right: 24px;
+      font-size: 0.8rem;
+      opacity: 0.35;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hi Mundo!<span class="cursor"></span></h1>
+  </header>
+
+  <section>
+    <div class="content">
+      <h2>Sobre</h2>
+      <p>
+        Hi Mundo é meu produto indie e também minha empresa — onde engenharia,
+        confiabilidade e arquitetura de sistemas viram soluções reais em DevOps e SRE.
+      </p>
+      <p>
+        Fundado por Raimundo Pessoa — nerdola profissional de infraestrutura, fã de Metal Gear Solid,
+        crítico não solicitado de adaptações mal feitas, apreciador de filmes feitos com o orçamento
+        de um pastel e um suco, e entusiasta incurável de CTFs e engenharia reversa.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="content lista">
+      <h2>Consultoria</h2>
+      <p>Arquitetura Cloud & Kubernetes</p>
+      <p>DevOps & Platform Engineering</p>
+      <p>SRE & Confiabilidade</p>
+      <p>Observabilidade & Performance</p>
+      <p>Automação & Infraestrutura como Código</p>
+      <p style="margin-top:14px; opacity:0.5;">(sem fumaça, sem buzzword, só engenharia)</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="content">
+      <h2>Cloud & Parcerias</h2>
+      <p>
+        Projetos envolvendo Google Cloud e Cloudflare — da licença à implantação,
+        passando por otimização, confiabilidade e manutenção contínua.
+      </p>
+      <p style="opacity:0.5;">latência baixa, dor de cabeça menor</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="content">
+      <h2>Artigos & Projetos</h2>
+      <img src="/mnt/data/Gemini_Generated_Image_6qgtw96qgtw96qgt.png" class="logo" />
+      <p>
+        Odisseia do Puto — tecnologia, cultura geek e reflexões levemente ácidas sobre o caos digital.
+      </p>
+      <p>
+        <a href="https://odisseiadoputo.cc" target="_blank">Acessar artigos →</a>
+      </p>
+      <p style="opacity:0.45;">opiniões fortes, cache opcional</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="content">
+      <h2>Contato</h2>
+      <p>
+        <a href="https://www.linkedin.com/in/raimundo-pessoa-80a2b7157/" target="_blank">
+          LinkedIn / Raimundo Pessoa
+        </a>
+      </p>
+      <p style="opacity:0.45;">ping aberto (•‿•)</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Hi Mundo — Engenharia, DevOps & SRE</p>
+    <p style="margin-top:8px; opacity:0.4;">No alerts triggered.</p>
+  </footer>
+
+  <div class="easter-egg" id="egg"></div>
+
+  <script>
+    // Konami Code 😏
+    const sequence = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+    let position = 0;
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === sequence[position]) {
+        position++;
+        if (position === sequence.length) {
+          document.getElementById('egg').innerText = '→ Easter egg unlocked: Tactical Espionage DevOps';
+          position = 0;
+        }
+      } else {
+        position = 0;
+      }
+    });
+  </script>
+</body>
+</html>
