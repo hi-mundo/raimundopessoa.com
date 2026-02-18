@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,35 +9,17 @@
 
   <style>
     :root {
-      --bege: #d6cbb8;
-      --preto: #111111;
+      --beige: #d6cbb8;
+      --black: #111111;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Ubuntu Mono', monospace;
-      background: var(--bege);
-      color: var(--preto);
+      background: var(--beige);
+      color: var(--black);
       overflow-x: hidden;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.35), transparent 40%),
-                  radial-gradient(circle at 80% 70%, rgba(255,255,255,0.25), transparent 45%),
-                  radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15), transparent 60%);
-      filter: blur(40px);
-      animation: fogMove 25s linear infinite;
-      z-index: -1;
-    }
-
-    @keyframes fogMove {
-      0% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(-30px,20px,0) scale(1.05); }
-      100% { transform: translate3d(0,0,0) scale(1); }
     }
 
     header {
@@ -67,7 +49,7 @@
       margin-left: 12px;
       width: 28px;
       height: 5px;
-      background: var(--preto);
+      background: var(--black);
       vertical-align: middle;
       transform: translateY(11px);
       border-radius: 2px;
@@ -103,17 +85,10 @@
       margin-bottom: 14px;
     }
 
-    .lista p { margin-bottom: 6px; }
-
-    .logo {
-      width: 120px;
-      margin: 18px auto;
-      display: block;
-      opacity: 0.9;
-    }
+    .list p { margin-bottom: 6px; }
 
     a {
-      color: var(--preto);
+      color: var(--black);
       text-decoration: none;
       border-bottom: 1px solid rgba(0,0,0,0.35);
     }
@@ -126,15 +101,18 @@
       font-size: 0.85rem;
       opacity: 0.5;
     }
-
-    .easter-egg {
-      position: fixed;
-      bottom: 20px;
-      right: 24px;
-      font-size: 0.8rem;
-      opacity: 0.35;
-    }
   </style>
+
+  <script>
+    (function () {
+      const lang = navigator.language || navigator.userLanguage;
+
+      // If browser/system language starts with "pt", redirect to Portuguese version
+      if (lang && lang.toLowerCase().startsWith('pt')) {
+        window.location.href = '/pt/';
+      }
+    })();
+  </script>
 </head>
 <body>
 
@@ -142,94 +120,72 @@
     <div class="hero">
       <h1>Hi Mundo!<span class="cursor"></span></h1>
       <p>Nerdola as a Service.</p>
-      <p>Infraestrutura, DevOps & SRE sem teatro corporativo.</p>
+      <p>Infrastructure, DevOps & SRE without corporate theater.</p>
     </div>
   </header>
 
   <section>
     <div class="content">
-      <h2>Sobre</h2>
+      <h2>About</h2>
       <p>
-        Hi Mundo é meu laboratório, meu produto indie e minha empresa.
+        Hi Mundo is my lab, my indie product, and my company.
       </p>
       <p>
-        Aqui engenharia de infraestrutura não vira buzzword —
-        vira sistema resiliente, previsível e rápido.
+        Here, infrastructure engineering doesn’t become buzzwords —
+        it becomes resilient, predictable, high-performance systems.
       </p>
       <p>
-        Fundado por Raimundo Pessoa.
-        Nerdola profissional de DevOps & SRE,
-        veterano de incidentes em produção,
-        obcecado por confiabilidade, performance e arquitetura limpa.
+        Founded by Raimundo Pessoa.
+        Reliability-focused DevOps & SRE engineer,
+        production incident veteran,
+        obsessed with performance, stability, and clean architecture.
       </p>
       <p style="opacity:0.6;">
-        Menos hype. Mais engenharia.
+        Less hype. More engineering.
       </p>
     </div>
   </section>
 
   <section>
-    <div class="content lista">
-      <h2>Consultoria</h2>
-      <p>Serviços que evitam frases como “não sei por que caiu”:</p>
+    <div class="content list">
+      <h2>Consulting</h2>
+      <p>Services designed to prevent “we don’t know why it crashed”:</p>
       <br/>
-      <p>Arquitetura Cloud & Kubernetes</p>
+      <p>Cloud & Kubernetes Architecture</p>
       <p>DevOps & Platform Engineering</p>
-      <p>SRE & Confiabilidade</p>
-      <p>Observabilidade & Performance</p>
-      <p>Automação & Infraestrutura como Código</p>
+      <p>SRE & Reliability</p>
+      <p>Observability & Performance</p>
+      <p>Automation & Infrastructure as Code</p>
       <p style="margin-top:14px; opacity:0.5;">
-        Nerdola as Code. Sem fumaça. Só runtime saudável.
+        Nerdola as Code. No smoke. Just healthy runtime.
       </p>
     </div>
   </section>
 
   <section>
     <div class="content">
-      <h2>Cloud & Parcerias</h2>
+      <h2>Cloud & Partnerships</h2>
       <p>
-        Google Cloud & Cloudflare — da arquitetura à operação contínua.
+        Google Cloud & Cloudflare — from design to continuous operation.
       </p>
       <p style="opacity:0.5;">
-        Latência baixa. Surpresas menores.
+        Lower latency. Fewer surprises.
       </p>
     </div>
   </section>
 
   <section>
     <div class="content">
-      <h2>Artigos & Projetos</h2>
-      <img src="/img/oputo.png" class="logo" />
+      <h2>Contact</h2>
       <p>
-        Odisseia do Puto
-      </p>
-      <p>
-        Tecnologia, cultura geek e reflexões levemente ácidas
-        sobre o caos digital.
-      </p>
-      <p>
-        <a href="https://odisseiadoputo.cc" target="_blank">
-          Acessar artigos →
-        </a>
-      </p>
-      <p style="opacity:0.45;">
-        opiniões fortes, cache opcional
-      </p>
-    </div>
-  </section>
-
-  <section>
-    <div class="content">
-      <h2>Contato</h2>
-      <p>
-        Precisa de alguém que trate produção como coisa séria?
+        Need someone who treats production like it actually matters?
       </p>
       <p>
         <a href="https://www.linkedin.com/in/raimundo-pessoa-80a2b7157/" target="_blank">
           LinkedIn / Raimundo Pessoa
         </a>
       </p>
-      <p style="opacity:0.45;">Ping aberto.</p>
+      <p style="opacity:0.45;">Ping open.</p>
     </div>
   </section>
 
@@ -237,26 +193,6 @@
     <p>Hi Mundo — Nerdola as a Service</p>
     <p style="margin-top:8px; opacity:0.4;">No alerts triggered.</p>
   </footer>
-
-  <div class="easter-egg" id="egg"></div>
-
-  <script>
-    const sequence = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
-    let position = 0;
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === sequence[position]) {
-        position++;
-        if (position === sequence.length) {
-          document.getElementById('egg').innerText =
-            '→ Easter egg unlocked: Nerdola Ops Mode';
-          position = 0;
-        }
-      } else {
-        position = 0;
-      }
-    });
-  </script>
 
 </body>
 </html>
