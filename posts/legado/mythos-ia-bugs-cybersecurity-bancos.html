@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mythos Não É Magia: É a Fábrica de Bugs que Assustou os Bancos - raimundopessoa.com</title>
+  <style>
+    :root{color-scheme:light dark;--bg:#f6f1e8;--text:#1f1a14;--muted:#706659;--faint:#988d7e;--line:rgba(57,45,31,.16);--link:#684513}
+    @media (prefers-color-scheme:dark){:root{--bg:#14110e;--text:#efe7db;--muted:#b8ab99;--faint:#8c806f;--line:rgba(239,231,219,.14);--link:#e3c07a}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.72 Georgia,Cambria,"Times New Roman",serif}
+    main{width:min(1020px,calc(100% - 42px));margin:0 auto;padding:52px 0 76px}
+    article{max-width:880px}.back,.meta{font:14px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--faint)}
+    .back{display:inline-block;margin-bottom:42px;color:var(--link);text-decoration:none}.back:hover{text-decoration:underline}
+    h1{font:780 clamp(2.25rem,7vw,5.4rem)/1.06 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0;margin:0 0 20px;max-width:980px}
+    h2,h3,h4{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.18;margin:42px 0 12px}
+    .subtitle{max-width:780px;color:var(--muted);font-size:1.18rem;margin:0 0 20px}.meta{margin:0 0 34px}
+    p,li{max-width:780px;color:var(--muted)}a{color:var(--link)}strong{color:var(--text)}ul{padding-left:1.1rem}
+    figure{margin:30px 0}.line{height:1px;width:min(760px,calc(100% - 34px));margin:36px 0;background:linear-gradient(90deg,transparent,var(--line),rgba(57,45,31,.08),transparent);box-shadow:0 10px 16px rgba(67,49,25,.12)}
+    img{max-width:min(780px,100%);height:auto;border-radius:4px;box-shadow:0 18px 46px rgba(0,0,0,.16)}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../../">← raimundopessoa.com</a>
+    <article>
+      <p class="meta">legado do odisseiadoputo · 10/05/2026 · tech · seguranca · ia · noticias</p>
+      <h1>Mythos Não É Magia: É a Fábrica de Bugs que Assustou os Bancos</h1>
+      <p class="subtitle">A notícia importante não é que a Anthropic criou um oráculo hacker. É que modelos de IA, quando ligados a uma boa esteira de teste, já estão encontrando falhas em escala industrial.</p>
+      <div class="line"></div>
+      <h2>Mythos não é magia: é bug em escala industrial</h2>
+<p>Estava lendo a notícia da CNBC sobre o <strong>Mythos</strong>, da Anthropic, e o susto que esse assunto causou em bancos e reguladores. A versão preguiçosa da história seria: &quot;a Anthropic criou uma IA hacker que vai quebrar o sistema financeiro&quot;.</p>
+<p>Só que essa leitura é ruim.</p>
+<p>O Mythos é importante, mas não porque ele seja uma bola de cristal que olha para um repositório e cospe CVE como quem lê tarot no terminal. O ponto real é mais útil: <strong>LLMs bons, quando ligados a uma esteira decente de teste, validação e triagem, já conseguem encontrar falhas em software real numa escala que muda a rotina de segurança</strong>.</p>
+<figure><img src="/assets/legado/img/mythos-ia-bugs-cybersecurity-bancos.png" alt="" loading="lazy"></figure>
+<p><em>O truque não é a IA &quot;adivinhar&quot; bug. É colocar sensor, esteira e gente validando a rachadura antes do prédio virar notícia.</em></p>
+<h2>O que aconteceu de verdade</h2>
+<p>A Anthropic anunciou o <strong>Project Glasswing</strong> em abril de 2026. A ideia: dar acesso restrito ao <strong>Claude Mythos Preview</strong> para organizações que seguram pedaços importantes da infraestrutura digital, incluindo AWS, Apple, Google, Microsoft, NVIDIA, Palo Alto Networks, Linux Foundation e JPMorganChase.</p>
+<p>A justificativa da Anthropic é que o modelo ficou forte demais em tarefas de cibersegurança para ser largado no público geral sem preparo. A empresa diz que o Mythos encontrou milhares de vulnerabilidades zero-day em sistemas operacionais, navegadores e outros softwares críticos. Só uma parte pequena disso é verificável hoje, porque divulgar bug antes de patch é basicamente entregar pé de cabra com manual ilustrado.</p>
+<p>O melhor exemplo público vem da Mozilla.</p>
+<p>No Firefox, a Mozilla disse ter corrigido <strong>423 bugs de segurança em abril</strong>. Desse total, <strong>271 foram atribuídos ao Claude Mythos Preview</strong> na leva do Firefox 150. Depois, a própria Mozilla abriu a cozinha e explicou o que importa: não foi &quot;prompt mágico&quot;. Foi modelo mais capaz, harness próprio, fuzzing, teste reproduzível, triagem e mais de 100 pessoas ajudando a colocar correção em pé.</p>
+<p>É menos sexy do que &quot;IA hacker&quot;. E muito mais verdadeiro.</p>
+<h2>A esteira é o produto</h2>
+<p>A analogia boa aqui é inspeção predial.</p>
+<p>Antes, você tinha meia dúzia de especialistas batendo na parede com o ouvido, procurando infiltração onde a experiência dizia que a coisa costuma estourar. Agora você colocou câmera térmica, sensor de umidade, robôzinho passando no corredor e um engenheiro olhando o laudo antes de mandar quebrar a parede.</p>
+<p>Isso não torna o sensor mágico. Torna a inspeção mais barata, repetível e ampla.</p>
+<p>Na prática, a esteira é simples de entender:</p>
+<p>1. o modelo lê partes do código e levanta hipóteses; 2. o harness roda testes e tenta reproduzir o comportamento; 3. fuzzers e sanitizers separam suspeita de crash real; 4. a triagem transforma descoberta em bug report; 5. humanos validam impacto e corrigem.</p>
+<p>Esse é o ponto que muito post alarmista perde. <strong>Mythos sozinho não resolve nada.</strong> Sem ambiente de execução, sem teste reproduzível, sem triagem e sem time para corrigir, ele vira uma impressora de boleto emocional para mantenedor de projeto.</p>
+<h2>E não é só o Mythos</h2>
+<p>Aqui entra o banho de água fria no marketing.</p>
+<p>Pesquisadores da Vidoc Security pegaram exemplos públicos e já corrigidos do material da Anthropic e tentaram reproduzir partes dos achados usando modelos públicos, como <strong>GPT-5.4</strong> e <strong>Claude Opus 4.6</strong>, dentro de um agente open-source. O resultado não foi &quot;tudo igual&quot;. Foi mais interessante: alguns casos reproduziram limpo, outros ficaram parciais, e outros falharam.</p>
+<p>Ou seja: o Mythos pode ser melhor, mais rápido e mais consistente. Mas a capacidade de encontrar sinal de vulnerabilidade com LLM <strong>não está presa em um altar secreto da Anthropic</strong>. O diferencial começa a sair do modelo puro e ir para o encanamento em volta: orquestração, ferramentas, custo, paralelismo, validação, priorização e correção.</p>
+<p>Bruce Schneier resumiu bem o espírito da coisa no Guardian: o Mythos não é único, mas faz parte de uma curva em que vários modelos estão ficando bons demais em procurar falha. A parte desconfortável não é um único produto. É a direção do mercado.</p>
+<h2>Por que banco e governo ficam nervosos</h2>
+<p>Banco não tem medo de ferramenta bonita. Banco tem medo de assimetria.</p>
+<p>Se achar falha fica mais barato e rápido, mas corrigir continua dependendo de comitê, janela de mudança, fornecedor, legado e medo de derrubar produção, o gargalo muda de lugar. O problema deixa de ser &quot;ninguém achou o bug&quot; e vira &quot;todo mundo achou, agora quem corrige antes?&quot;.</p>
+<p>O AI Security Institute do Reino Unido também colocou freio e acelerador na mesma frase. Nos testes controlados, o Mythos teve avanço forte em tarefas de ataque simulado, incluindo 73% de sucesso em CTFs especialistas e conclusão de uma cadeia corporativa de 32 passos em 3 de 10 tentativas. Mas o próprio instituto avisa: o ambiente era vulnerável, sem defensores ativos e sem ferramentas defensivas reais. Não é a mesma coisa que invadir um banco bem defendido.</p>
+<p>Esse detalhe importa.</p>
+<p>O perigo não é &quot;amanhã a IA invade todos os bancos&quot;. O perigo é que <strong>o custo de procurar rachadura caiu</strong>, enquanto muito setor crítico ainda remenda parede com processo de 2009.</p>
+<h2>O recado prático</h2>
+<p>Se você trabalha com segurança, AppSec, engenharia ou governança, a notícia não é para comprar pânico. É para ajustar processo.</p>
+<p>O básico:</p>
+<ul>
+  <li>use modelos para levantar hipótese;</li>
+  <li>rode tudo em ambiente isolado;</li>
+  <li>exija reprodução;</li>
+  <li>conecte com fuzzing e CI;</li>
+  <li>deduplique antes de abrir bug;</li>
+  <li>reduza o tempo entre achado e patch.</li>
+</ul>
+<p>Mythos é o nome famoso da semana. A mudança real é maior e mais sem graça: <strong>caçar bug virou linha de produção</strong>.</p>
+<p>E empresa que ainda corrige vulnerabilidade no ritmo de ata de reunião vai descobrir que a esteira não espera o jurídico terminar de revisar o e-mail.</p>
+<h4>Fontes e Referências</h4>
+<p><strong>Fontes primárias</strong></p>
+<ul>
+  <li><a href="https://www.cnbc.com/2026/05/08/anthropic-mythos-ai-cybersecurity-banks.html">CNBC: Anthropic Mythos, cybersecurity e bancos</a></li>
+  <li><a href="https://www.anthropic.com/glasswing">Anthropic: Project Glasswing</a></li>
+  <li><a href="https://red.anthropic.com/2026/mythos-preview/">Anthropic Red Team: Assessing Claude Mythos Preview&#39;s cybersecurity capabilities</a></li>
+  <li><a href="https://hacks.mozilla.org/2026/05/behind-the-scenes-hardening-firefox/">Mozilla Hacks: Behind the Scenes Hardening Firefox with Claude Mythos Preview</a></li>
+  <li><a href="https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities">UK AI Security Institute: evaluation of Claude Mythos Preview&#39;s cyber capabilities</a></li>
+</ul>
+<p><strong>Análises e contexto</strong></p>
+<ul>
+  <li><a href="https://blog.vidocsecurity.com/blog/we-reproduced-anthropics-mythos-findings-with-public-models">Vidoc Security Lab: reproducing Mythos findings with public models</a></li>
+  <li><a href="https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/">TechCrunch: Anthropic debuts Mythos in cybersecurity initiative</a></li>
+  <li><a href="https://www.scientificamerican.com/article/what-is-mythos-and-why-are-experts-worried-about-anthropics-ai-model/">Scientific American: what is Mythos and how worried should we be?</a></li>
+  <li><a href="https://www.theguardian.com/commentisfree/2026/may/08/how-dangerous-is-anthropics-mythos-ai">The Guardian: Bruce Schneier on Anthropic&#39;s Mythos AI</a></li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>

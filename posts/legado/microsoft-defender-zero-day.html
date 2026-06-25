@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quando o Seu Antivírus Vira o Hacker: O Zero-Day &#39;BlueHammer&#39; no Windows Defender - raimundopessoa.com</title>
+  <style>
+    :root{color-scheme:light dark;--bg:#f6f1e8;--text:#1f1a14;--muted:#706659;--faint:#988d7e;--line:rgba(57,45,31,.16);--link:#684513}
+    @media (prefers-color-scheme:dark){:root{--bg:#14110e;--text:#efe7db;--muted:#b8ab99;--faint:#8c806f;--line:rgba(239,231,219,.14);--link:#e3c07a}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.72 Georgia,Cambria,"Times New Roman",serif}
+    main{width:min(1020px,calc(100% - 42px));margin:0 auto;padding:52px 0 76px}
+    article{max-width:880px}.back,.meta{font:14px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--faint)}
+    .back{display:inline-block;margin-bottom:42px;color:var(--link);text-decoration:none}.back:hover{text-decoration:underline}
+    h1{font:780 clamp(2.25rem,7vw,5.4rem)/1.06 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0;margin:0 0 20px;max-width:980px}
+    h2,h3,h4{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.18;margin:42px 0 12px}
+    .subtitle{max-width:780px;color:var(--muted);font-size:1.18rem;margin:0 0 20px}.meta{margin:0 0 34px}
+    p,li{max-width:780px;color:var(--muted)}a{color:var(--link)}strong{color:var(--text)}ul{padding-left:1.1rem}
+    figure{margin:30px 0}.line{height:1px;width:min(760px,calc(100% - 34px));margin:36px 0;background:linear-gradient(90deg,transparent,var(--line),rgba(57,45,31,.08),transparent);box-shadow:0 10px 16px rgba(67,49,25,.12)}
+    img{max-width:min(780px,100%);height:auto;border-radius:4px;box-shadow:0 18px 46px rgba(0,0,0,.16)}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../../">← raimundopessoa.com</a>
+    <article>
+      <p class="meta">legado do odisseiadoputo · 24/04/2026 · tech · seguranca · noticias</p>
+      <h1>Quando o Seu Antivírus Vira o Hacker: O Zero-Day &#39;BlueHammer&#39; no Windows Defender</h1>
+      <p class="subtitle">A Microsoft entregou de bandeja o acesso SYSTEM para hackers através de uma falha bizarra na atualização de assinaturas do Defender.</p>
+      <div class="line"></div>
+      <h2>A Ironia da Proteção</h2>
+<p>O software que foi desenhado para proteger a sua infraestrutura Windows acabou de se tornar a porta de entrada para os hackers. E o nível do amadorismo arquitetural é assustador.</p>
+<p>Uma vulnerabilidade crítica <em>zero-day</em> no Microsoft Defender, batizada carinhosamente de &quot;BlueHammer&quot; (CVE-2026-33825), está sendo explorada ativamente nesse exato momento. A falha é tão grave que a CISA (Agência de Cibersegurança dos EUA) já enfiou o exploit no catálogo de vulnerabilidades urgentes e mandou todo mundo corrigir para ontem.</p>
+<h2>A Mecânica do Escalonamento: BlueHammer e RedSun</h2>
+<p>A mecânica do ataque é humilhante para a Microsoft. O invasor não precisa quebrar criptografia nem descobrir senhas de administrador. O ataque usa o que chamamos de <em>Privilege Escalation</em> (Escalonamento de Privilégio) puro e simples.</p>
+<p>Funciona assim: um invasor consegue acesso de baixo nível na máquina (um usuário comum e restrito). A partir daí, ele explora uma falha de lógica na forma como o Microsoft Defender atualiza as assinaturas de vírus. Ao manipular esse mecanismo de atualização falho, o invasor engana o sistema operacional e ganha permissões absolutas de <strong>SYSTEM</strong> (o nível mais alto possível no Windows, acima até do Administrador).</p>
+<p>O antivírus vira, literalmente, o cavalo de Troia que entrega o controle total do servidor.</p>
+<p>E se você achou ruim, saiba que tem um segundo zero-day acompanhando, chamado &quot;RedSun&quot;, que explora como o Defender lida com a remediação de arquivos vindos da nuvem, entregando o mesmo acesso SYSTEM pro invasor.</p>
+<h2>A Morte da Trégua de Patches</h2>
+<p>A época de esperar o &quot;Patch Tuesday&quot; pra aplicar atualização no servidor acabou. Quando o seu antivírus nativo se torna a principal falha de escalonamento de privilégio e a prova de conceito (PoC) já está rolando solta em fóruns russos e no GitHub, a sua janela de reação se mede em horas, não semanas.</p>
+<p>O aviso da CISA não é pra encher o saco do DevOps, é o atestado de óbito de qualquer servidor não atualizado. Atualizem as assinaturas e apliquem os patches emergenciais da Microsoft hoje. Se o Defender for a causa da sua invasão, boa sorte tentando explicar pro CEO que o antivírus dele hackeou a empresa.</p>
+<h4>Fontes e Referências</h4>
+<ul>
+  <li><a href="https://www.securityweek.com/recent-microsoft-defender-vulnerability-exploited-as-zero-day/">SecurityWeek: Recent Microsoft Defender Vulnerability Exploited as Zero-Day</a></li>
+  <li><a href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-microsoft-defender-flaw-exploited-in-zero-day-attacks/">Bleeping Computer: CISA orders feds to patch Microsoft Defender flaw exploited in zero-day attacks</a></li>
+  <li><a href="https://blog.qualys.com/qualys-insights/2026/04/22/dont-wait-for-a-patch-mitigate-redsun-risk-in-microsoft-defender-today">Qualys: Mitigate RedSun Risk in Microsoft Defender</a></li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>

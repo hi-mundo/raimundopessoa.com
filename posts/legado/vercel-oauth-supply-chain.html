@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anatomia de um Desastre: O Hack da Vercel e a Farsa do OAuth Seguro - raimundopessoa.com</title>
+  <style>
+    :root{color-scheme:light dark;--bg:#f6f1e8;--text:#1f1a14;--muted:#706659;--faint:#988d7e;--line:rgba(57,45,31,.16);--link:#684513}
+    @media (prefers-color-scheme:dark){:root{--bg:#14110e;--text:#efe7db;--muted:#b8ab99;--faint:#8c806f;--line:rgba(239,231,219,.14);--link:#e3c07a}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.72 Georgia,Cambria,"Times New Roman",serif}
+    main{width:min(1020px,calc(100% - 42px));margin:0 auto;padding:52px 0 76px}
+    article{max-width:880px}.back,.meta{font:14px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--faint)}
+    .back{display:inline-block;margin-bottom:42px;color:var(--link);text-decoration:none}.back:hover{text-decoration:underline}
+    h1{font:780 clamp(2.25rem,7vw,5.4rem)/1.06 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0;margin:0 0 20px;max-width:980px}
+    h2,h3,h4{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.18;margin:42px 0 12px}
+    .subtitle{max-width:780px;color:var(--muted);font-size:1.18rem;margin:0 0 20px}.meta{margin:0 0 34px}
+    p,li{max-width:780px;color:var(--muted)}a{color:var(--link)}strong{color:var(--text)}ul{padding-left:1.1rem}
+    figure{margin:30px 0}.line{height:1px;width:min(760px,calc(100% - 34px));margin:36px 0;background:linear-gradient(90deg,transparent,var(--line),rgba(57,45,31,.08),transparent);box-shadow:0 10px 16px rgba(67,49,25,.12)}
+    img{max-width:min(780px,100%);height:auto;border-radius:4px;box-shadow:0 18px 46px rgba(0,0,0,.16)}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../../">← raimundopessoa.com</a>
+    <article>
+      <p class="meta">legado do odisseiadoputo · 21/04/2026 · tech · seguranca</p>
+      <h1>Anatomia de um Desastre: O Hack da Vercel e a Farsa do OAuth Seguro</h1>
+      <p class="subtitle">Como um token roubado de uma startup de IA permitiu um movimento lateral que comprometeu milhares de variáveis de ambiente.</p>
+      <div class="line"></div>
+      <h2>O Castelo de Cartas do SaaS e o Vetor OAuth</h2>
+<p>A Vercel foi invadida e a infraestrutura de milhares de clientes foi exposta. A culpa não é de um exploit zero-day hiper complexo vendido na dark web, mas da falha arquitetural mais ignorada da década: a cadeia de suprimentos via permissões OAuth.</p>
+<p>O ataque começou fora da Vercel. Um funcionário usou sua conta corporativa do Google Workspace para dar permissão irrestrita (o maldito botão &quot;Permitir Tudo&quot;) a uma ferramenta de analytics baseada em IA chamada Context.ai. O detalhe tragicômico? A Context.ai foi hackeada no mês passado. Os invasores rasparam o banco de tokens OAuth deles, identificaram a credencial válida de um engenheiro da Vercel e começaram a festa.</p>
+<h2>A Mecânica do Exploit: Escovando os Bits do Movimento Lateral</h2>
+<p>Pra quem gosta de escovar bit, vamos falar da anatomia real do ataque. O mercado ainda trata o OAuth corporativo como se fosse o botão de &quot;Fazer login com Facebook&quot; do Tinder. Não é. Quando voce da permissão de Workspace pra um SaaS de terceiros, voce ta entregando <em>refresh tokens</em> com escopos massivos.</p>
+<p>O fluxo do exploit foi brutalmente simples e elegante: 1. A Context.ai foi hackeada. O atacante dumpou o banco de dados deles e levou os <em>refresh tokens</em> OAuth válidos. 2. O atacante pegou o token específico do engenheiro da Vercel e bateu direto na API do Google Workspace (`googleapis.com`). Nada de senha, nada de phishing, nada de 2FA. O token já é o bypass de MFA definitivo. 3. Com acesso à API, scripts automatizados varreram o Gmail e o Google Drive do funcionário atrás de chaves hardcoded, tokens de acesso a painéis internos, credenciais da AWS ou tokens de CI/CD.</p>
+<p>Achou a credencial de infraestrutura na caixa de entrada? O invasor pivoteia pro painel de controle interno da Vercel.</p>
+<h2>A Farsa do KMS e das Variáveis Encriptadas</h2>
+<p>O resultado prático foi o vazamento de variáveis de ambiente de clientes. A Vercel soltou uma nota de RP jurando que as variáveis marcadas como &quot;sensíveis&quot; estavam encriptadas.</p>
+<p>Isso é uma meia-verdade técnica projetada pra acalmar acionista. Criptografia em repouso só te protege se alguém invadir o data center e roubar o HD físico do servidor.</p>
+<p>Se o atacante entra no ambiente cloud (AWS/GCP) com credenciais administrativas roubadas do e-mail, ele herda a <em>role</em> do IAM atrelada ao KMS (Key Management Service). Ele não precisa quebrar a criptografia matemática; ele simplesmente faz a chamada legítima de `Decrypt` na API do provedor de nuvem e o sistema devolve as variáveis &quot;sensíveis&quot; em texto claro. O sistema fez exatamente o que foi programado pra fazer: entregar o dado pra quem tinha a chave.</p>
+<p>A cereja do bolo foi o CEO Guillermo Rauch tentar justificar a catástrofe dizendo que os invasores agiram com uma &quot;velocidade surpreendente&quot;, insinuando que os hackers usaram IA para acelerar o ataque. É a desculpa perfeita pra tentar tirar o foco da várzea que era a governança de acessos deles. A invasão foi rápida porque a porta tava escancarada por dentro.</p>
+<h2>Como Mitigar Essa Várzea</h2>
+<p>A Vercel mandou rotacionar as credenciais. Faça isso agora, sem pensar duas vezes. Mas se a sua empresa não mudar a cultura, voce é o próximo.</p>
+<p>1. <strong>Trave o OAuth Corporativo:</strong> Se a sua organização permite que qualquer desenvolvedor integre o Google Workspace ou Azure AD com a primeira startup de IA que ele acha no Twitter, a culpa do próximo vazamento é sua. O bloqueio de apps de terceiros tem que ser default. A liberação só acontece via whitelist, depois do time de sec dar o sangue auditando a startup. 2. <strong>Zero Trust para SaaS:</strong> Trate integrações de terceiros como agentes hostis. O escopo do token OAuth precisa ser o mínimo necessário (Princípio do Menor Privilégio). Pediu acesso total aos e-mails pra gerar um resumo de log? Bloqueia.</p>
+<p>Terceirizar inteligência artificial é ótimo pra produtividade, mas quando voce acopla um sistema novo numa base sem auditoria, voce ta só construindo a ponte pro seu próprio velório digital.</p>
+<h4>Fontes e Referências</h4>
+<ul>
+  <li><a href="https://www.trendmicro.com/en_us/research/26/d/vercel-breach-oauth-supply-chain.html">Trend Micro: Vercel Breach OAuth Supply Chain</a></li>
+  <li><a href="https://thehackernews.com/2026/04/vercel-breach-tied-to-context-ai-hack.html">The Hacker News: Vercel Breach Tied to Context.ai</a></li>
+  <li><a href="https://www.darkreading.com/application-security/vercel-employees-ai-tool-access-data-breach">Dark Reading: Vercel Employees AI Tool Access Data Breach</a></li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>

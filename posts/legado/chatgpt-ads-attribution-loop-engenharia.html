@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engenharia Reversa no ChatGPT: Como a OpenAI Injeta Anúncios e Rastreia Você - raimundopessoa.com</title>
+  <style>
+    :root{color-scheme:light dark;--bg:#f6f1e8;--text:#1f1a14;--muted:#706659;--faint:#988d7e;--line:rgba(57,45,31,.16);--link:#684513}
+    @media (prefers-color-scheme:dark){:root{--bg:#14110e;--text:#efe7db;--muted:#b8ab99;--faint:#8c806f;--line:rgba(239,231,219,.14);--link:#e3c07a}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.72 Georgia,Cambria,"Times New Roman",serif}
+    main{width:min(1020px,calc(100% - 42px));margin:0 auto;padding:52px 0 76px}
+    article{max-width:880px}.back,.meta{font:14px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--faint)}
+    .back{display:inline-block;margin-bottom:42px;color:var(--link);text-decoration:none}.back:hover{text-decoration:underline}
+    h1{font:780 clamp(2.25rem,7vw,5.4rem)/1.06 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0;margin:0 0 20px;max-width:980px}
+    h2,h3,h4{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.18;margin:42px 0 12px}
+    .subtitle{max-width:780px;color:var(--muted);font-size:1.18rem;margin:0 0 20px}.meta{margin:0 0 34px}
+    p,li{max-width:780px;color:var(--muted)}a{color:var(--link)}strong{color:var(--text)}ul{padding-left:1.1rem}
+    figure{margin:30px 0}.line{height:1px;width:min(760px,calc(100% - 34px));margin:36px 0;background:linear-gradient(90deg,transparent,var(--line),rgba(57,45,31,.08),transparent);box-shadow:0 10px 16px rgba(67,49,25,.12)}
+    img{max-width:min(780px,100%);height:auto;border-radius:4px;box-shadow:0 18px 46px rgba(0,0,0,.16)}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../../">← raimundopessoa.com</a>
+    <article>
+      <p class="meta">legado do odisseiadoputo · 28/04/2026 · tech · seguranca · noticias</p>
+      <h1>Engenharia Reversa no ChatGPT: Como a OpenAI Injeta Anúncios e Rastreia Você</h1>
+      <p class="subtitle">O robô que prometia revolucionar a humanidade virou só mais um painel de anúncios focado em te vender marmita no Grubhub.</p>
+      <div class="line"></div>
+      <h2>A Conta de Energia Chegou (E a IA Virou Outdoor)</h2>
+<p>A regra imutável da internet bateu na porta do Vale do Silício: toda ferramenta revolucionária eventualmente se torna apenas mais uma máquina hiper-otimizada de vender anúncios.</p>
+<p>Sejamos francos, isso era óbvio. Você acha que a sua conta de luz está cara no final do mês? A OpenAI tá queimando gigawatts em clusters de GPU para processar as suas perguntas inúteis. A conta de infraestrutura deles é estratosférica e o modelo de assinatura de 20 dólares nunca ia fechar essa matemática. A única saída viável no ecossistema digital sempre foi a mesma: monetizar o usuário.</p>
+<p>Um pesquisador independente escovou os bits do tráfego do ChatGPT e fez engenharia reversa na nova plataforma de <em>Ads</em> da empresa. A conclusão? O robô que prometia transcender o trabalho humano agora é, na prática, um algoritmo de rastreamento com PhD focado em te vender coisas.</p>
+<h2>A Mecânica do &quot;Ad Injection&quot; via SSE</h2>
+<p>O ataque à sua carteira acontece de forma silenciosa e estruturada. Quando você conversa com o ChatGPT, a interface abre uma conexão <em>Server-Sent Events (SSE)</em> no backend (`chatgpt.com/backend-api/f/conversation`). O servidor não manda só a resposta do modelo; ele injeta eventos malandros do tipo `single_advertiser_ad_unit`.</p>
+<p>O payload é uma aula de como amarrar o usuário: 1. <strong>Targeting Contextual Bruto:</strong> A OpenAI lê o prompt na hora e cospe a propaganda. O cara perguntou sobre viagem para Pequim? A IA devolve um card do Grubhub (iFood gringo) focado em comida chinesa. Falou de moda primavera? Toma anúncio da Aritzia. O contexto é 100% monetizado em tempo real. 2. <strong>A Ilusão da Fuga:</strong> Os links dos anúncios vêm com a flag `&quot;open_externally&quot;: false`. O ChatGPT obriga o anúncio a abrir dentro do próprio <em>webview</em> do aplicativo. Você não sai do ecossistema deles. A OpenAI monitora o que você faz depois do clique.</p>
+<h2>Os 4 Tokens Criptografados de Rastreamento</h2>
+<p>Para fechar o loop de conversão e cobrar do anunciante, a OpenAI criou uma esteira de rastreamento pesada. Eles penduram <strong>quatro tokens criptografados (Fernet AES-128-CBC)</strong> em cada card de anúncio.</p>
+<p>A mágica acontece quando você clica. A URL de destino carrega tokens na <em>query string</em> (como o `oppref`). Lá na página do anunciante, a OpenAI instalou um script espião deles (o SDK <strong>OAIQ</strong> - `oaiq.min.js`). Esse script pega o seu token de clique e grava um cookie de primeira parte chamado `__oppref` no seu navegador que dura 30 dias (720 horas).</p>
+<p>Tudo o que você fizer no site do anunciante depois disso vai bater num endpoint secreto de telemetria da OpenAI (`bzr.openai.com`) avisando que o ChatGPT conseguiu te vender uma pizza.</p>
+<h2>Como Bloquear a Várzea</h2>
+<p>No fim do dia, a revolução da inteligência artificial foi reduzida a descobrir como otimizar o <em>Click-Through Rate</em> (CTR) de publicidade direcionada. Se você tem preguiça de ser o rato de laboratório da vez, a instrução técnica pra limpar a sua rede é adicionar esses domínios na blocklist do seu Pi-hole, firewall ou uBlock Origin para matar a telemetria deles:</p>
+<ul>
+  <li>`bzrcdn.openai.com`</li>
+  <li>`bzr.openai.com`</li>
+</ul>
+<p>E se tiver curiosidade, vá nos cookies do seu navegador hoje e procure por `__oppref` ou `__oaiq_domain_probe`. Você vai ver de camarote a Skynet contabilizando a sua vontade de comer lanche.</p>
+<h4>Fontes e Referências</h4>
+<ul>
+  <li><a href="https://www.buchodi.com/how-chatgpt-serves-ads-heres-the-full-attribution-loop/">Buchodi.com: How ChatGPT serves ads. Here&#39;s the full attribution loop</a></li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>

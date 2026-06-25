@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Cofre Ruiu: Como o Bitwarden CLI Virou um Verme no NPM - raimundopessoa.com</title>
+  <style>
+    :root{color-scheme:light dark;--bg:#f6f1e8;--text:#1f1a14;--muted:#706659;--faint:#988d7e;--line:rgba(57,45,31,.16);--link:#684513}
+    @media (prefers-color-scheme:dark){:root{--bg:#14110e;--text:#efe7db;--muted:#b8ab99;--faint:#8c806f;--line:rgba(239,231,219,.14);--link:#e3c07a}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.72 Georgia,Cambria,"Times New Roman",serif}
+    main{width:min(1020px,calc(100% - 42px));margin:0 auto;padding:52px 0 76px}
+    article{max-width:880px}.back,.meta{font:14px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--faint)}
+    .back{display:inline-block;margin-bottom:42px;color:var(--link);text-decoration:none}.back:hover{text-decoration:underline}
+    h1{font:780 clamp(2.25rem,7vw,5.4rem)/1.06 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0;margin:0 0 20px;max-width:980px}
+    h2,h3,h4{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.18;margin:42px 0 12px}
+    .subtitle{max-width:780px;color:var(--muted);font-size:1.18rem;margin:0 0 20px}.meta{margin:0 0 34px}
+    p,li{max-width:780px;color:var(--muted)}a{color:var(--link)}strong{color:var(--text)}ul{padding-left:1.1rem}
+    figure{margin:30px 0}.line{height:1px;width:min(760px,calc(100% - 34px));margin:36px 0;background:linear-gradient(90deg,transparent,var(--line),rgba(57,45,31,.08),transparent);box-shadow:0 10px 16px rgba(67,49,25,.12)}
+    img{max-width:min(780px,100%);height:auto;border-radius:4px;box-shadow:0 18px 46px rgba(0,0,0,.16)}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../../">← raimundopessoa.com</a>
+    <article>
+      <p class="meta">legado do odisseiadoputo · 23/04/2026 · tech · seguranca · noticias</p>
+      <h1>O Cofre Ruiu: Como o Bitwarden CLI Virou um Verme no NPM</h1>
+      <p class="subtitle">A ironia suprema da cibersegurança: o seu gerenciador de senhas teve o CI/CD hackeado e entregou a sua AWS de bandeja.</p>
+      <div class="line"></div>
+      <h2>A Ironia Suprema da Cibersegurança</h2>
+<p>Antes de voce entrar em pânico e deletar sua conta: os cofres de senhas dos usuários finais do Bitwarden não foram comprometidos. A criptografia de ponta a ponta deles continua intacta e não houve vazamento de dados de clientes.</p>
+<p>O ataque foi um <em>supply chain attack</em> focado estritamente no desenvolvedor. No dia 22 de abril, a versão `@bitwarden/cli@2026.4.0` foi publicada no NPM contendo um payload malicioso. O pacote ficou no ar por uma janela curtíssima de apenas 1 hora e meia, mas se a sua pipeline rodou um `npm install` nesse período, o seu ambiente foi aspirado.</p>
+<h2>A Mecânica do Verme e a Lib Infectada</h2>
+<p>Pra ser justo com a equipe do Bitwarden, a culpa não foi inteiramente de uma falha de segurança interna deles. Eles foram vítimas da esteira de automação. A porta de entrada foi uma <strong>biblioteca infectada</strong> de terceiros que rodou dentro da pipeline de CI/CD deles.</p>
+<p>Essa dependência envenenada comprometeu o <em>GitHub Action</em> do repositório, roubou os tokens de publicação do NPM e injetou um verme batizado de &quot;Shai-Hulud&quot; no pacote oficial.</p>
+<p>O payload varreu as máquinas infectadas e roubou:</p>
+<ul>
+  <li>Tokens do GitHub e NPM</li>
+  <li>Chaves da AWS, GCP e Azure</li>
+  <li>Arquivos `.env` e chaves SSH</li>
+  <li>O histórico do shell</li>
+  <li>Configurações de IA (Claude, Cursor, Aider).</li>
+</ul>
+<p>Os dados eram exfiltrados pra um domínio falso que fingia ser da Checkmarx (`audit.checkmarx[.]cx`).</p>
+<h2>Controles de Postura: O CI/CD é o Novo Perímetro</h2>
+<p>O pacote foi derrubado rápido, mas a lição estrutural é assustadora: se o Bitwarden, uma empresa que respira cibersegurança, tomou uma rasteira de uma biblioteca infectada no meio do processo de build, o que te faz pensar que a pipeline da sua empresa tá segura? Todo mundo tá sujeito a isso.</p>
+<p>O elo mais fraco da sua segurança não é a criptografia do banco de dados, é o NPM ou a action aleatória que o seu dev colocou no GitHub.</p>
+<p>A única forma de sobreviver hoje é tratar o CI/CD como o novo perímetro e implementar Controles de Postura (ASPM/CSPM). Voce precisa de automação forçando o <em>compliance</em>: varredura de dependências antes do build, análise de permissões de GitHub Actions, e bloqueio de artefatos não assinados. Sem postura de segurança automatizada na esteira, a sua infraestrutura é só um castelo de areia esperando a próxima lib infectada.</p>
+<h4>Fontes e Referências</h4>
+<ul>
+  <li><a href="https://thehackernews.com/2026/04/bitwarden-cli-compromised-in-ongoing.html">The Hacker News: Bitwarden CLI compromised in ongoing Checkmarx impersonation supply chain attack</a></li>
+  <li><a href="https://www.bleepingcomputer.com/news/security/bitwarden-cli-npm-package-compromised-to-steal-developer-credentials/">Bleeping Computer: Bitwarden CLI npm package compromised to steal developer credentials</a></li>
+  <li><a href="https://socket.dev/blog/bitwarden-cli-compromised">Socket.dev: Bitwarden CLI compromised</a></li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>

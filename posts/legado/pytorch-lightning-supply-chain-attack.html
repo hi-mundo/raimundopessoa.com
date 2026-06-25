@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Ataque &#39;Shai-Hulud&#39; no PyTorch Lightning: O Que Realmente Aconteceu - raimundopessoa.com</title>
+  <style>
+    :root{color-scheme:light dark;--bg:#f6f1e8;--text:#1f1a14;--muted:#706659;--faint:#988d7e;--line:rgba(57,45,31,.16);--link:#684513}
+    @media (prefers-color-scheme:dark){:root{--bg:#14110e;--text:#efe7db;--muted:#b8ab99;--faint:#8c806f;--line:rgba(239,231,219,.14);--link:#e3c07a}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.72 Georgia,Cambria,"Times New Roman",serif}
+    main{width:min(1020px,calc(100% - 42px));margin:0 auto;padding:52px 0 76px}
+    article{max-width:880px}.back,.meta{font:14px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--faint)}
+    .back{display:inline-block;margin-bottom:42px;color:var(--link);text-decoration:none}.back:hover{text-decoration:underline}
+    h1{font:780 clamp(2.25rem,7vw,5.4rem)/1.06 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0;margin:0 0 20px;max-width:980px}
+    h2,h3,h4{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.18;margin:42px 0 12px}
+    .subtitle{max-width:780px;color:var(--muted);font-size:1.18rem;margin:0 0 20px}.meta{margin:0 0 34px}
+    p,li{max-width:780px;color:var(--muted)}a{color:var(--link)}strong{color:var(--text)}ul{padding-left:1.1rem}
+    figure{margin:30px 0}.line{height:1px;width:min(760px,calc(100% - 34px));margin:36px 0;background:linear-gradient(90deg,transparent,var(--line),rgba(57,45,31,.08),transparent);box-shadow:0 10px 16px rgba(67,49,25,.12)}
+    img{max-width:min(780px,100%);height:auto;border-radius:4px;box-shadow:0 18px 46px rgba(0,0,0,.16)}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../../">← raimundopessoa.com</a>
+    <article>
+      <p class="meta">legado do odisseiadoputo · 01/05/2026 · tech · seguranca · ia · noticias</p>
+      <h1>O Ataque &#39;Shai-Hulud&#39; no PyTorch Lightning: O Que Realmente Aconteceu</h1>
+      <p class="subtitle">A biblioteca de IA foi comprometida, mas sem pânico cego. Aqui estão os fatos cruzados sobre as versões 2.6.2 e 2.6.3 no PyPI.</p>
+      <div class="line"></div>
+      <h2>Menos Pânico, Mais Fatos: O Caso PyTorch Lightning</h2>
+<p>Quando um ataque de cadeia de suprimentos (<em>Supply Chain Attack</em>) atinge uma biblioteca fundamental de Inteligência Artificial, a internet tende a entrar em histeria. Para evitar espalhar desinformação, fiz o que todo analista deveria fazer: cruzei os dados do alerta inicial da <strong>Semgrep</strong> com os relatórios do <strong>The Hacker News</strong> e da <strong>Palo Alto Networks</strong>.</p>
+<p>Aqui está o raio-X exato e sem filtro do que aconteceu com o PyTorch Lightning no dia 30 de abril de 2026.</p>
+<h2>O Que Foi Comprometido?</h2>
+<p>A biblioteca afetada é a `lightning` (o pacote oficial do PyTorch Lightning no repositório PyPI). <strong>Apenas as versões 2.6.2 e 2.6.3 foram envenenadas.</strong></p>
+<p>Os administradores do PyPI já entraram em ação e colocaram o projeto em quarentena. As investigações iniciais indicam que os mantenedores sofreram um roubo de credencial no GitHub, permitindo que o grupo cibernético identificado como <strong>TeamPCP</strong> publicasse o código malicioso.</p>
+<h2>Como o Malware Funciona</h2>
+<p>O ataque usa a temática do &quot;Mini Shai-Hulud&quot; (o verme de areia de Duna). A arquitetura do código é complexa, cruzando ecossistemas: 1. <strong>O Gatilho:</strong> Quando você instala as versões comprometidas e importa a biblioteca no Python, um script furtivo (`start.py`) é acionado. 2. <strong>O Download Silencioso:</strong> Esse script baixa automaticamente o <strong>Bun</strong> (um <em>runtime</em> de JavaScript) para a sua máquina. 3. <strong>A Execução:</strong> Ele roda um <em>payload</em> ofuscado de 11MB (`router_runtime.js`) em segundo plano.</p>
+<p>O objetivo do ataque é roubo em massa. O <em>script</em> varre o sistema em busca de chaves SSH, variáveis de ambiente, credenciais de nuvem (AWS, GCP, Azure Key Vault), tokens do GitHub, tokens do NPM e até carteiras de criptomoedas.</p>
+<p>Ele também cria repositórios públicos no GitHub com mensagens irônicas para exfiltrar seus dados e, como um verme clássico, tenta infectar outros pacotes do NPM se encontrar as senhas certas na sua máquina.</p>
+<h2>A Persistência Avançada</h2>
+<p>O que chamou a atenção da comunidade de segurança foi o mecanismo de persistência. Para garantir que o roubo continue mesmo após a execução inicial, o malware escreve ganchos de execução em ferramentas de desenvolvimento:</p>
+<ul>
+  <li><strong>No VS Code:</strong> Ele altera o arquivo `.vscode/tasks.json` para que o código malicioso rode toda vez que você abrir a pasta do projeto.</li>
+  <li><strong>No Claude Code:</strong> Ele altera o `.claude/settings.json`, executando o roubo caso você inicie uma sessão com a IA de terminal da Anthropic.</li>
+</ul>
+<h2>O Que Você Deve Fazer</h2>
+<p>Se você não atualizou o pacote `lightning` no dia 30 de abril, respire. Se você instalou as versões 2.6.2 ou 2.6.3 na sua máquina local ou esteira de CI/CD, o protocolo de resposta a incidentes é claro:</p>
+<p>1. Remova imediatamente as versões comprometidas. 2. Faça o <em>downgrade</em> para a versão <strong>2.6.1</strong> (a última versão limpa garantida). 3. Considere todos os segredos e credenciais que estavam naquela máquina como <strong>comprometidos</strong>. 4. Revogue (gire) tokens do GitHub, senhas de NPM e chaves de provedores de nuvem.</p>
+<p>Não é o fim do mundo, é apenas mais uma terça-feira na guerra do código aberto. Auditem suas dependências.</p>
+<h4>Fontes Oficiais e Referências Técnicas</h4>
+<ul>
+  <li><a href="https://semgrep.dev/blog/2026/malicious-dependency-in-pytorch-lightning-used-for-ai-training/">Semgrep: Malicious Dependency in PyTorch Lightning</a></li>
+  <li><a href="https://thehackernews.com/2026/04/pytorch-lightning-compromised-in-pypi.html">The Hacker News: PyTorch Lightning Compromised in PyPI</a></li>
+  <li><a href="https://unit42.paloaltonetworks.com/npm-supply-chain-attack/">Palo Alto Networks (Unit 42): Supply Chain Attack Analysis</a></li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>

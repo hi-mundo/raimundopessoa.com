@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Fim do NGINX Ingress Chega, Mas o Boleto Fica: A Necrose Arquitetural que Custa o Seu Cluster. - raimundopessoa.com</title>
+  <style>
+    :root{color-scheme:light dark;--bg:#f6f1e8;--text:#1f1a14;--muted:#706659;--faint:#988d7e;--line:rgba(57,45,31,.16);--link:#684513}
+    @media (prefers-color-scheme:dark){:root{--bg:#14110e;--text:#efe7db;--muted:#b8ab99;--faint:#8c806f;--line:rgba(239,231,219,.14);--link:#e3c07a}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.72 Georgia,Cambria,"Times New Roman",serif}
+    main{width:min(1020px,calc(100% - 42px));margin:0 auto;padding:52px 0 76px}
+    article{max-width:880px}.back,.meta{font:14px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--faint)}
+    .back{display:inline-block;margin-bottom:42px;color:var(--link);text-decoration:none}.back:hover{text-decoration:underline}
+    h1{font:780 clamp(2.25rem,7vw,5.4rem)/1.06 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0;margin:0 0 20px;max-width:980px}
+    h2,h3,h4{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.18;margin:42px 0 12px}
+    .subtitle{max-width:780px;color:var(--muted);font-size:1.18rem;margin:0 0 20px}.meta{margin:0 0 34px}
+    p,li{max-width:780px;color:var(--muted)}a{color:var(--link)}strong{color:var(--text)}ul{padding-left:1.1rem}
+    figure{margin:30px 0}.line{height:1px;width:min(760px,calc(100% - 34px));margin:36px 0;background:linear-gradient(90deg,transparent,var(--line),rgba(57,45,31,.08),transparent);box-shadow:0 10px 16px rgba(67,49,25,.12)}
+    img{max-width:min(780px,100%);height:auto;border-radius:4px;box-shadow:0 18px 46px rgba(0,0,0,.16)}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../../">← raimundopessoa.com</a>
+    <article>
+      <p class="meta">legado do odisseiadoputo · 21/02/2026</p>
+      <h1>O Fim do NGINX Ingress Chega, Mas o Boleto Fica: A Necrose Arquitetural que Custa o Seu Cluster.</h1>
+      <p class="subtitle">Uma Autopsia do Ingress NGINX</p>
+      <div class="line"></div>
+      <p>O código legado é um agiota que não aceita renegociação; ele apenas espera o momento de maior vulnerabilidade para cobrar os juros acumulados em anos de negligência. A decisão do <strong>Kubernetes SIG Network</strong> e do <strong>Security Response Committee</strong> de aposentar o <strong>Ingress NGINX</strong> em março de 2026 é a execução de uma dívida técnica que a indústria tentou ignorar por uma década. Atualmente, aproximadamente 50% dos ambientes de nuvem dependem desse controlador, um Frankenstein de abstrações mantido por um ou dois heróis exaustos em suas horas vagas, enquanto corporações bilionárias tratam sua infraestrutura como um teatro de <em>Clean Code</em>. Este relatório disseca o colapso do modelo de “snippets” e a transição obrigatória para o <strong>Gateway API</strong>, onde a realidade do <em>runtime</em> finalmente vence o PowerPoint da arquitetura.</p>
+<p>`server { listen 443; server_name “fim_da_era”; }`</p>
+<p>A infraestrutura de rede do Kubernetes enfrenta sua maior purgação técnica. O anúncio da aposentadoria do <strong>Ingress NGINX</strong> encerra a era da flexibilidade suicida, onde a dependência de anotações de texto permitiu vetores de ataque catastróficos. O <strong>CVE-2025-1974</strong>, com pontuação <strong>CVSS</strong> de <em>fuckiiing</em> 9.8, provou que o modelo de “snippets” é um convite para execução remota de código (<strong>RCE</strong>) e sequestro total de segredos do cluster. Economicamente, o impacto é uma <strong>necrose financeira</strong>: o débito técnico ignorado pode reduzir o retorno sobre investimento (<strong>ROI</strong>) de iniciativas de modernização em até 29%, transformando margens de lucro em notas de rodapé de incidentes de segurança.</p>
+<figure><img src="{{ site.baseurl }}/img/cve-2025-1974-impact.png" alt="" loading="lazy"></figure>
+<p><em>O impacto devastador do IngressNightmare na segurança de clusters.</em></p>
+<p>`upstream technical_debt { server “seu_legado:666”; }`</p>
+<p>A análise de sistemas complexos exige um rigor que ignora a masturbação cerebral das reuniões de diretoria. A premissa é bruta: o código é a verdade única; tudo o que está acima dele é opinião não fundamentada ou marketing mal ensaiado. A metodologia aqui foca na identificação de mecanismos causais em falhas de segurança e na latência como a métrica suprema de valor comercial.</p>
+<p>Muitos clusters operam hoje sob o fenômeno da preguiça — promessas de estabilidade que carecem de <em>throughput</em> medido ou perfis de latência <strong>P99</strong> reais. Para sanar essa patologia, este relatório confronta o <em>throughput</em> de 180.000 requisições por segundo (<strong>RPS</strong>) com o custo real de memória e CPU.</p>
+<p><strong>Provocação para você:</strong> Qual é o impacto real no seu <strong>P99</strong> durante um <em>reload</em> massivo de <em>ConfigMap</em> quando o cluster ultrapassa os 500 objetos Ingress? Alguém mediu o <em>jitter</em> de rede ou o monitoramento é apenas decorativo? A ausência desse dado é o primeiro sintoma de uma engenharia preguiçosa que espera o desastre para agir.</p>
+<p>`location ~* .vulnerability$ { deny all; # Tarde demais }`</p>
+<p>O <strong>Ingress NGINX</strong> nasceu como um exemplo didático que a preguiça coletiva transformou em padrão de indústria. A especificação original da <strong>Ingress API</strong> era cronicamente anêmica, o que levou ao uso patológico de anotações — pares de chave-valor em strings que funcionam como uma API paralela e obscura. Mais de 75% dos objetos Ingress em uso utilizam pelo menos uma anotação, e 23% utilizam cinco ou mais, criando o que definimos como a “<strong>Armadilha do Templating</strong>”.</p>
+<p>O design é fundamentalmente inseguro por depender de:</p>
+<ul>
+  <li><strong>Injeção de Configuração:</strong> O uso de “snippets” permite injeção de diretivas NGINX, transformando o controlador em um interpretador de entradas não confiáveis.</li>
+  <li><strong>Débito Técnico Insuperável:</strong> A flexibilidade que outrora foi um benefício tornou-se um fardo que impossibilita a manutenção segura.</li>
+  <li><strong>Modelo de Reinicialização:</strong> A dependência de regeneração de arquivos e <em>reload</em> de processos causa picos de latência em ambientes altamente dinâmicos.</li>
+</ul>
+<p>O colapso “<strong>IngressNightmare</strong>” (<strong>CVE-2025-1974</strong>) é o veredito final: o atacante carrega uma biblioteca maliciosa (.so) via um POST grande, injeta a diretiva <em>ssl_engine</em> via anotação e, quando o controlador executa `nginx -t` para validar a configuração, o <em>takeover</em> do cluster é concluído. Tentar “limpar anotações” agora é como tentar vedar um buraco no submarino com o jubileu após a implosão ter começado.</p>
+<p>`proxy_set_header X-Real-Cost $roi;`</p>
+<p>A migração para o <strong>Gateway API</strong> não é uma escolha estética; é uma imposição da física econômica. O mercado recompensa a velocidade e pune a latência: cada 100ms de atraso custam 1% em vendas totais.</p>
+<p><strong>Comparativo de Performance (Dados de Fintech - 5.8M req/dia)</strong></p>
+<ul>
+  <li><strong>NGINX Ingress:</strong> Sustenta até 180.000 <strong>RPS</strong> com latência <strong>P99</strong> de 65ms. No entanto, a depuração de falhas 500 em microserviços complexos é descrita como um “inferno manual”, onde a falta de rastreamento nativo consome horas de engenharia.</li>
+  <li><strong>Istio Gateway:</strong> Apresenta uma queda inicial de 25% no <em>throughput</em> e latência <strong>P99</strong> de 95ms. Em contrapartida, reduz incidentes de implantação em 80% e corta o tempo de <em>troubleshooting</em> de horas para minutos.</li>
+  <li><strong>Cilium eBPF:</strong> Utiliza o <em>kernel</em> para contornar o processamento tradicional. Atinge latência <strong>P99</strong> de 0,8ms, um ganho de 33% sobre o <strong>Calico</strong> (1,2ms) e mais de 50% sobre o <strong>Flannel</strong> (1,8ms).</li>
+</ul>
+<p><strong>Provocação Técnica:</strong> Qual é o <em>overhead</em> real de CPU do seu plano de dados <strong>Envoy</strong> quando o <strong>mTLS</strong> está em modo ‘strict’ sob uma carga de 500k conexões simultâneas? Alguém no seu time sabe explicar o gráfico de consumo de memória ou o dimensionamento é baseado em “sentimento”?</p>
+<p>O débito técnico acumulado em redes legadas consome até 29% dos orçamentos de IA. Se a base da sua infraestrutura é uma necrose de anotações, sua iniciativa de IA é apenas uma forma cara de automatizar a geração de erros.</p>
+<p>`return 410 “Gone”; # O Veredito Operacional`</p>
+<p>Meu povo, o diagnóstico é de morte encefálica arquitetural. O <strong>Ingress NGINX</strong> parou de ser um ativo para se tornar uma responsabilidade civil e técnica que expõe sua organização ao “<strong>IngressNightmare</strong>”. Manter esse Frankenstein após março de 2026 é um convite formal para que qualquer ator de ameaça sequestre seus segredos de produção.</p>
+<p><strong>Implicações Operacionais Imediatas:</strong></p>
+<p>1.  <strong>Auditoria de Existência:</strong> utilize `kubectl get pods -A -l app.kubernetes.io/name=ingress-nginx` para localizar os focos de infecção. 2.  <strong>Inventário de “Snippets”:</strong> Utilize de suas tarefas do <em>backlog</em> para auditar a complexidade das anotações que você jurou que removeria “no próximo sprint”.</p>
+<p><strong>Escolha do Sucessor:</strong></p>
+<ul>
+  <li><strong>Cilium:</strong> Para quem busca performance de <em>kernel</em> (<strong>P99</strong> de 0,8ms) e visibilidade via <strong>eBPF</strong>.</li>
+  <li><strong>Istio/Envoy:</strong> Para quem precisa de governança e <strong>mTLS</strong> automatizado, aceitando o custo de CPU em favor da sanidade operacional.</li>
+  <li><strong>NGINX Gateway Fabric:</strong> Destinado a quem mantém um apego emocional irracional ao engine NGINX, mas, ainda assim, reconhece a necessidade de aderir à especificação <strong>Gateway API</strong>. (Confesso: nem estava ciente de sua existência até pesquisar para este artigo.)</li>
+</ul>
+<p>O débito vence em março de 2026. Você pode pagar agora com uma migração estruturada ou pagar depois com o seu cargo após a próxima violação de dados. O código parou de negociar; a física do <em>runtime</em> não se importa com seu cronograma de feriados.</p>
+<p>---</p>
+<h4>Referências de Trincheira:</h4>
+<ul>
+  <li>Ingress NGINX: Statement from the Kubernetes Steering and Security Response Committees: https://kubernetes.io/blog/2026/01/29/ingress-nginx-statement/</li>
+  <li>CVE-2025-1974: Critical Set of Vulnerabilities in Ingress NGINX: https://socprime.com/blog/cve-2025-1974-aka-ingress-nightmare/</li>
+  <li>IngressNightmare: Unauth RCE in Ingress NGINX (CVE-2025-1974): https://projectdiscovery.io/blog/ingressnightmare-unauth-rce-in-ingress-nginx</li>
+  <li>Why the Ingress NGINX Fork is Not a Security Strategy - Traefik Labs: https://traefik.io/blog/the-illusion-of-safety-why-the-ingress-nginx-fork-is-not-a-security-strategy</li>
+  <li>Kubernetes CNI 2025: Cilium vs Calico vs Flannel Performance: https://sanj.dev/post/cilium-calico-flannel-cni-performance-comparison</li>
+  <li>A practical approach to boosting your AI ROI - IBM: https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/technical-debt-ai-roi</li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>

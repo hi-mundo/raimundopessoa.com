@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Seu Dinheiro em Dólar Vazou: O Hack do BTG Pactual e o Risco de Terceiros - raimundopessoa.com</title>
+  <style>
+    :root{color-scheme:light dark;--bg:#f6f1e8;--text:#1f1a14;--muted:#706659;--faint:#988d7e;--line:rgba(57,45,31,.16);--link:#684513}
+    @media (prefers-color-scheme:dark){:root{--bg:#14110e;--text:#efe7db;--muted:#b8ab99;--faint:#8c806f;--line:rgba(239,231,219,.14);--link:#e3c07a}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.72 Georgia,Cambria,"Times New Roman",serif}
+    main{width:min(1020px,calc(100% - 42px));margin:0 auto;padding:52px 0 76px}
+    article{max-width:880px}.back,.meta{font:14px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--faint)}
+    .back{display:inline-block;margin-bottom:42px;color:var(--link);text-decoration:none}.back:hover{text-decoration:underline}
+    h1{font:780 clamp(2.25rem,7vw,5.4rem)/1.06 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0;margin:0 0 20px;max-width:980px}
+    h2,h3,h4{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.18;margin:42px 0 12px}
+    .subtitle{max-width:780px;color:var(--muted);font-size:1.18rem;margin:0 0 20px}.meta{margin:0 0 34px}
+    p,li{max-width:780px;color:var(--muted)}a{color:var(--link)}strong{color:var(--text)}ul{padding-left:1.1rem}
+    figure{margin:30px 0}.line{height:1px;width:min(760px,calc(100% - 34px));margin:36px 0;background:linear-gradient(90deg,transparent,var(--line),rgba(57,45,31,.08),transparent);box-shadow:0 10px 16px rgba(67,49,25,.12)}
+    img{max-width:min(780px,100%);height:auto;border-radius:4px;box-shadow:0 18px 46px rgba(0,0,0,.16)}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../../">← raimundopessoa.com</a>
+    <article>
+      <p class="meta">legado do odisseiadoputo · 27/04/2026 · tech · seguranca · noticias</p>
+      <h1>O Seu Dinheiro em Dólar Vazou: O Hack do BTG Pactual e o Risco de Terceiros</h1>
+      <p class="subtitle">Você protege a sua senha do banco, mas o seu banco manda os seus dados para uma corretora nos EUA que acaba de ser hackeada.</p>
+      <div class="line"></div>
+      <h2>A Autópsia do Terceiro: Como a DriveWealth Falhou</h2>
+<p>O BTG Pactual (maior banco de investimentos da América Latina) acaba de disparar o e-mail de &quot;Data Breach&quot; para sua base de clientes com contas em dólar. Mas para quem trabalha com engenharia, o detalhe suculento não é o que vazou, mas <em>onde</em> o perímetro quebrou.</p>
+<p>O ataque não atingiu o core bancário do BTG. O vazamento ocorreu na infraestrutura da <strong>DriveWealth LLC</strong>, a corretora parceira que opera no modelo de <em>Banking as a Service (BaaS)</em> (onde o BTG atua apenas como front-end e motor de roteamento no Brasil, repassando o cadastro e as ordens via API para o back-end da corretora nos EUA).</p>
+<h2>A Superfície de Ataque do &#39;BaaS&#39;</h2>
+<p>Arquiteturalmente, o modelo de BaaS exige uma sincronização constante de metadados. Quando o BTG abre sua conta lá fora, ele cria um <em>tenant</em> na DriveWealth e dispara Webhooks e requisições REST contendo o PII (Personally Identifiable Information) do usuário.</p>
+<p>O vazamento (que expôs nomes, <em>Account Numbers</em> e identificadores bancários) escancara o calcanhar de Aquiles das integrações B2B modernas: o <strong>Third-Party Risk Management (TPRM)</strong>. O seu banco pode ser auditado e possuir criptografia de repouso em nível militar, mas no momento em que ele transaciona o seu JSON para o banco de dados de um parceiro na nuvem gringa, a sua segurança é rebaixada automaticamente para o nível de maturidade do fornecedor.</p>
+<p>A urgência do banco em anunciar a &quot;troca imediata de todas as numerações de conta&quot; é a confirmação técnica de que as chaves primárias do banco de dados (que deveriam ser opacas ou tokenizadas internamente) foram exfiltradas em texto claro e não há como mitigar a engenharia social sem girar a base inteira.</p>
+<h2>A Falha Estrutural: Coincidência ou Lateral Movement?</h2>
+<p>O que eleva o nível de preocupação desta arquitetura é o contexto. Em março, o BTG sofreu um ataque massivo (tentativa de desvio na casa dos R$ 100 milhões). A comunicação corporativa insiste que os ataques são independentes.</p>
+<p>Entretanto, quem trabalha em defesa sabe que grupos organizados (como operadores de Ransomware ou APTs) não atacam de forma isolada. A extração de dados em fornecedores (<em>supply chain attack</em>) muitas vezes precede ou sucede a movimentação lateral para a matriz, usando as credenciais e conexões API validadas entre as empresas (o famoso <em>API Abuse</em>).</p>
+<h2>A Lição para as FinTechs</h2>
+<p>A realidade é brutal para a era de microserviços terceirizados: você não tem controle.</p>
+<p>Para o usuário: a sua biometria e seu token 2FA no aplicativo são teatro de segurança se o backend da ponta da cadeia for feito de fita crepe. Para o Arquiteto e CISO: se a sua empresa integra o core business via API com um vendor que tem acesso de leitura aos dados dos clientes, a falha dele será a manchete com a <em>sua</em> logomarca no jornal. O seu perímetro não termina na sua nuvem, termina na nuvem do seu fornecedor mais barato.</p>
+<h4>Fontes e Referências</h4>
+<ul>
+  <li><a href="https://www.cnnbrasil.com.br/economia/negocios/btg-pactual-confirma-acesso-indevido-a-dados-de-contas-internacionais/">CNN Brasil: BTG Pactual confirma acesso indevido a dados de contas internacionais</a></li>
+  <li><a href="https://oglobo.globo.com/google/amp/blogs/capital/post/2026/04/vazam-dados-de-contas-internacionais-do-btg-pactual-apos-ataque-hacker.ghtml">O Globo: Vazam dados de contas internacionais do BTG Pactual após ataque hacker</a></li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>

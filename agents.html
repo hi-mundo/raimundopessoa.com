@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGENTS.md - raimundopessoa.com</title>
+  <meta name="description" content="Contrato editorial publico de raimundopessoa.com para orientar linguagem, visual e manutencao por agentes de IA." />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f3ea;
+      --text: #191714;
+      --muted: #676057;
+      --rule: #d8d0c3;
+      --link: #533f24;
+      --panel: #fffaf0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171513;
+        --text: #eee7dc;
+        --muted: #b7aa9a;
+        --rule: #3b342c;
+        --link: #e2c58f;
+        --panel: #201d19;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    header,
+    main,
+    footer {
+      width: min(760px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 40px 0 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .brand {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      align-items: baseline;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .brand a {
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    main {
+      padding: 32px 0 56px;
+    }
+
+    .source-note {
+      margin: 0 0 28px;
+      padding: 16px 18px;
+      border: 1px solid var(--rule);
+      background: var(--panel);
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      font-size: 2.4rem;
+    }
+
+    h2 {
+      margin: 42px 0 14px;
+      padding-top: 10px;
+      border-top: 1px solid var(--rule);
+      font-size: 1.45rem;
+    }
+
+    h3 {
+      margin: 28px 0 12px;
+      font-size: 1.1rem;
+    }
+
+    p,
+    ul {
+      margin: 0 0 18px;
+    }
+
+    ul {
+      padding-left: 1.3rem;
+    }
+
+    li {
+      margin: 0 0 8px;
+    }
+
+    a {
+      color: var(--link);
+      text-underline-offset: 0.16em;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.9em;
+    }
+
+    .numbered {
+      margin-left: 1rem;
+    }
+
+    footer {
+      padding: 24px 0 44px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <a href="./">raimundopessoa.com</a>
+      <span class="tagline">o burro curioso</span>
+    </div>
+  </header>
+  <main>
+    <div class="source-note">
+      Esta pagina e gerada a partir de <code>AGENTS.md</code>. Edite o Markdown e rode <code>ruby scripts/build-agents-page.rb</code> para sincronizar.
+      Ultima geracao: 2026-06-25.
+    </div>
+<h1>AGENTS.md do Blog</h1>
+<p>Este arquivo define como agentes de IA devem escrever, revisar e manter o conteudo publico de raimundopessoa.com.</p>
+<h2>Identidade</h2>
+<ul>
+<li>Nome do site: <code>raimundopessoa.com</code>.</li>
+<li>Assinatura fixa no header: <code>raimundopessoa.com</code> e <code>o burro curioso</code>.</li>
+<li>Posicionamento: blog pessoal, profissional e tecnico de Raimundo Pessoa.</li>
+<li>O site deve parecer um caderno publico de engenharia, seguranca, operacao,</li>
+<p>IA aplicada, carreira tecnica e observacao cultural quando ela ajuda a explicar tecnologia.</p>
+<li><code>odisseiadoputo</code> pode aparecer como metalink/laboratorio paralelo para</li>
+<p>textos menos profissionais: viagens tech ou nao, ideias de roteiro, sonhos, experimentos narrativos e pensamentos que nao precisam usar gravata.</p>
+</ul>
+<h2>Persona Editorial</h2>
+<p>Frederico Creize e a persona editorial recorrente do blog.</p>
+<ul>
+<li>Frederico Creize nao e mascote, personagem cômico nem assinatura para fugir</li>
+<p>de responsabilidade.</p>
+<li>Ele representa um modo de escrita: curioso, tecnico, desconfiado de hype,</li>
+<p>alergico a teatro corporativo e interessado em separar fato, inferencia e opiniao.</p>
+<li>Quando Frederico aparece, ele deve ajudar a organizar a analise, nao roubar a</li>
+<p>pauta.</p>
+<li>A voz pode ter humor acido, mas o humor deve aparecer como conclusao,</li>
+<p>comentario lateral ou puxao de realidade.</p>
+<li>O humor nao deve mascarar fato, substituir conceito tecnico, virar palavra de</li>
+<p>ordem ou transformar noticia seria em caricatura.</p>
+</ul>
+<h2>Linguagem</h2>
+<ul>
+<li>Escrever em portugues brasileiro claro, direto e adulto.</li>
+<li>Preferir frase concreta a frase performatica.</li>
+<li>Explicar o que aconteceu, por que importa e qual decisao pratica o leitor</li>
+<p>pode tomar.</p>
+<li>Separar claramente fato, inferencia e opiniao quando o assunto envolver</li>
+<p>incidentes, seguranca, empresas, pessoas, produtos ou noticias recentes.</p>
+<li>Evitar estetica de rage bait. A acidez deve servir a lucidez.</li>
+<li>Evitar jargao sem necessidade. Quando usar termo tecnico, explicar o impacto.</li>
+<li>Nao usar insulto como substituto de diagnostico.</li>
+<li>Nao suavizar problema real para soar corporativo. Clareza vem antes de</li>
+<p>etiqueta.</p>
+</ul>
+<h2>Tom</h2>
+<ul>
+<li>Profissional sem virar release de fornecedor.</li>
+<li>Pessoal sem virar diario sem contexto.</li>
+<li>Critico sem virar panfleto.</li>
+<li>Tecnico sem fingir neutralidade quando a conclusao e obvia.</li>
+<li>Ironico apenas quando a ironia ajuda a lembrar a realidade.</li>
+</ul>
+<h2>Visual</h2>
+<ul>
+<li>Prioridade absoluta: leitura confortavel no browser.</li>
+<li>Layout limpo, pouco ruído visual e largura de texto adequada.</li>
+<li>Evitar estetica hacker, matrix, glitch, neon, excesso de contraste e animacao</li>
+<p>decorativa.</p>
+<li>Suportar bem modo leitura do browser.</li>
+<li>Tipografia deve favorecer leitura longa.</li>
+<li>Cards e listas podem existir, mas nao devem competir com o texto.</li>
+<li>O site deve ser quase textual, mas nao deve parecer HTML cru: usar tipografia</li>
+<p>elegante, espacamento consistente, bordas discretas, sombras leves e microinteracoes simples.</p>
+<li>Evitar excesso de arredondamento, blocos muito separados e multiplos</li>
+<p>backgrounds competindo entre si.</p>
+<li>Sidebar deve conter navegacao global, nao controles especificos de conteudo.</li>
+<li>Filtros pertencem ao dominio da lista de posts e devem aparecer junto dos</li>
+<p>posts.</p>
+<li>Posts em listas devem ser clicaveis como unidade, nao apenas pelo titulo.</li>
+<li>Botoes utilitarios devem preferir icones ou labels muito curtos quando o</li>
+<p>contexto ja explica a acao.</p>
+<li>Evitar cards no conteudo principal. Preferir fundo unico, texto, listas e</li>
+<p>separadores discretos.</p>
+<li>O layout deve usar bem a largura da tela. Nao centralizar tudo em uma coluna</li>
+<p>estreita quando ha espaco horizontal util.</p>
+<li>Separadores devem parecer linhas em vale: curtos, com gradiente/sombra leve,</li>
+<p>sem encostar nas bordas da area de leitura.</p>
+<li>Botoes flutuantes podem existir com sombra leve para acoes rapidas, mas nao</li>
+<p>devem competir com o texto.</p>
+<li>Durante ajustes visuais, tirar screenshots no navegador para comparar a tela</li>
+<p>real antes de concluir.</p>
+<li>O primeiro viewport deve deixar claro que o site e <code>raimundopessoa.com</code>.</li>
+<li>A navegacao deve ser discreta: posts, sobre, prompts, AGENTS.md e metalinks.</li>
+</ul>
+<h2>Conteudo</h2>
+<ul>
+<li>Posts recentes devem aparecer na home.</li>
+<li>Posts tecnicos devem preservar fontes, contexto e limites de certeza.</li>
+<li>Posts herdados do <code>odisseiadoputo</code> devem ser adaptados para linguagem mais</li>
+<p>corporativa sem perder o diagnostico.</p>
+<li>Titulos podem ser fortes, mas devem continuar defensaveis.</li>
+<li>Subtitulos devem explicar valor, risco ou tese do texto.</li>
+<li>Conclusoes podem ter humor acido quando isso reforcar a tese.</li>
+<li>Comentarios editoriais devem ser marcados como opiniao quando houver risco de</li>
+<p>confusao com fato.</p>
+</ul>
+<h2>Prompts e Vibe Coding</h2>
+<ul>
+<li>O site pode ter uma pagina de prompts usados para construir e manter o</li>
+<p>proprio site.</p>
+<li>A pagina de prompts deve tratar vibe coding com transparencia, nao como</li>
+<p>vergonha e nao como fetiche.</p>
+<li>Quando uma decisao visual ou estrutural vier de prompt, registrar o prompt ou</li>
+<p>um resumo fiel dele.</p>
+<li>Prompts publicados nao devem conter segredos, credenciais, dados privados ou</li>
+<p>instrucoes pessoais que nao pertencem ao site.</p>
+</ul>
+<h2>Regras para Agentes</h2>
+<ul>
+<li>Antes de alterar texto editorial, identificar se a mudanca afeta fato,</li>
+<p>inferencia, opiniao, tom ou identidade.</p>
+<li>Nao publicar fatos recentes sem fonte verificavel.</li>
+<li>Nao transformar rumor em afirmacao.</li>
+<li>Nao aumentar agressividade de titulo se o texto nao sustenta.</li>
+<li>Nao remover ressalvas tecnicas para deixar a leitura mais dramatica.</li>
+<li>Nao copiar o estilo antigo do <code>odisseiadoputo</code> quando ele atrapalhar a marca</li>
+<p>profissional.</p>
+<li>Preservar slugs quando possivel para evitar quebrar links.</li>
+<li>Quando adaptar posts antigos, manter um rastro revisavel: titulo anterior,</li>
+<p>titulo novo e criterio de mudanca.</p>
+</ul>
+<h2>Frederico Creize em Uma Frase</h2>
+<p>Frederico Creize e o sujeito que leu o post-mortem, viu o dashboard, ouviu o pitch do fornecedor e perguntou: &quot;ta, mas onde isso quebra em producao?&quot;</p>
+<h2>Rodape Editorial</h2>
+<p>Este <code>AGENTS.md</code> e publico porque descreve o contrato editorial do blog, nao as instrucoes pessoais ou privadas de trabalho do autor.</p>
+  </main>
+  <footer>
+    Fonte canonica: AGENTS.md.
+  </footer>
+</body>
+</html>

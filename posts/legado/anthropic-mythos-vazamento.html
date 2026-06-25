@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anthropic Mythos: A IA &#39;Perigosa Demais&#39; Vazou por Culpa de Senha de Terceiro - raimundopessoa.com</title>
+  <style>
+    :root{color-scheme:light dark;--bg:#f6f1e8;--text:#1f1a14;--muted:#706659;--faint:#988d7e;--line:rgba(57,45,31,.16);--link:#684513}
+    @media (prefers-color-scheme:dark){:root{--bg:#14110e;--text:#efe7db;--muted:#b8ab99;--faint:#8c806f;--line:rgba(239,231,219,.14);--link:#e3c07a}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.72 Georgia,Cambria,"Times New Roman",serif}
+    main{width:min(1020px,calc(100% - 42px));margin:0 auto;padding:52px 0 76px}
+    article{max-width:880px}.back,.meta{font:14px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--faint)}
+    .back{display:inline-block;margin-bottom:42px;color:var(--link);text-decoration:none}.back:hover{text-decoration:underline}
+    h1{font:780 clamp(2.25rem,7vw,5.4rem)/1.06 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0;margin:0 0 20px;max-width:980px}
+    h2,h3,h4{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.18;margin:42px 0 12px}
+    .subtitle{max-width:780px;color:var(--muted);font-size:1.18rem;margin:0 0 20px}.meta{margin:0 0 34px}
+    p,li{max-width:780px;color:var(--muted)}a{color:var(--link)}strong{color:var(--text)}ul{padding-left:1.1rem}
+    figure{margin:30px 0}.line{height:1px;width:min(760px,calc(100% - 34px));margin:36px 0;background:linear-gradient(90deg,transparent,var(--line),rgba(57,45,31,.08),transparent);box-shadow:0 10px 16px rgba(67,49,25,.12)}
+    img{max-width:min(780px,100%);height:auto;border-radius:4px;box-shadow:0 18px 46px rgba(0,0,0,.16)}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../../">← raimundopessoa.com</a>
+    <article>
+      <p class="meta">legado do odisseiadoputo · 22/04/2026 · tech · seguranca · noticias</p>
+      <h1>Anthropic Mythos: A IA &#39;Perigosa Demais&#39; Vazou por Culpa de Senha de Terceiro</h1>
+      <p class="subtitle">A empresa que prega o evangelho da segurança da IA teve seu modelo militar vazado porque alguém adivinhou a URL.</p>
+      <div class="line"></div>
+      <h2>O Evangelho da Segurança Ruiu e o AI &quot;Dual-Use&quot;</h2>
+<p>Se tem uma empresa que adora posar de adulto responsável na sala da Inteligência Artificial, é a Anthropic. Eles construíram o &quot;Claude Mythos Preview&quot;, um modelo que mudou o paradigma da IA. O Mythos não é um mero assistente ou &quot;copilot&quot; gerador de código. Ele é um sistema ofensivo autônomo.</p>
+<p>Estamos falando de uma máquina projetada para simular cadeias de ataque com mais de 30 passos, gerar exploits do zero e fazer <em>pentest</em> cross-system. A IA virou uma tecnologia de uso dual (exatamente como a criptografia avançada). Por isso, a Anthropic decidiu: &quot;é perigosa demais pro público, vamos liberar só pra um grupinho seleto corporativo e governamental&quot;.</p>
+<p>Era o equivalente digital de uma ogiva nuclear guardada num cofre suíço. E adivinha como esse cofre impenetrável foi aberto no exato mesmo dia do anúncio?</p>
+<h2>A Mecânica do Fracasso: Full-Stack Security e Obscuridade</h2>
+<p>Se você espera um ataque com zero-days e injeção de kernel para roubar os pesos (weights) do modelo, a realidade vai te deprimir. Não vazou código, vazou <strong>acesso</strong>. A mecânica da invasão prova que segurança de IA não é um problema do modelo, é um problema <em>full-stack</em>.</p>
+<p>O grupo do fórum privado conseguiu acesso ao Mythos explorando o elo mais sujo da cadeia: o <em>third-party vendor</em> e a infraestrutura de CI/CD de parceiros. Eles comprometeram as credenciais de um prestador de serviço. Mas a falha fatal vem a seguir.</p>
+<p>Como eles acharam o modelo &quot;super secreto&quot;? Eles literalmente adivinharam o endpoint. Isso escancara falhas arquiteturais patéticas na Anthropic: 1. <strong>Predictable Resource Location:</strong> O padrão de nomenclatura da API era tão óbvio (`claude-3-opus`) que um brute-force de dicionário bateu no endpoint do Mythos. 2. <strong>Security through Obscurity (e falta de RBAC):</strong> &quot;Adivinhar a URL&quot; resultou em acesso bem-sucedido. O endpoint não estava isolado por controles de acesso (RBAC) granulares que validassem o escopo da credencial vazada do vendor.</p>
+<p>A inteligência artificial capaz de simular ciberataques militares vazou porque a empresa mais paranóica do Vale confiou em segurança por obscuridade na camada de API.</p>
+<h2>A Ilusão do Perímetro e o Foco no Lugar Errado</h2>
+<p>A ironia chega a ser fisicamente dolorosa. A Anthropic gasta milhões treinando <em>Constitutional AI</em> e alinhamento ético pra máquina não destruir a humanidade, mas não consegue proteger a porta dos fundos da própria infraestrutura.</p>
+<p>Eles já soltaram a nota de Relações Públicas de sempre: &quot;estamos investigando&quot;, &quot;não tem evidência de que saiu do ambiente do vendor&quot;, e por aí vai. O estrago tá feito. O modelo já foi acessado.</p>
+<p>A lição pra nós aqui embaixo não é sobre o quão perigosa a IA vai ficar. A lição é que não importa se você tá protegendo um banco de dados de padaria ou uma arma cibernética militar baseada em redes neurais: se a sua cadeia de suprimentos (o famoso <em>supply chain</em>) é gerida com fita crepe, você vai ser invadido pela porta da frente usando a credencial do cara que limpa o carpete.</p>
+<p>Pare de ter medo da Skynet e vá auditar os acessos da sua empresa terceirizada.</p>
+<h4>Fontes e Referências</h4>
+<ul>
+  <li><a href="https://www.theguardian.com/technology/2026/apr/22/anthropic-investigates-report-of-rogue-access-to-hack-enabling-mythos-ai">The Guardian: Anthropic investigates report of rogue access to hack-enabling Mythos AI</a></li>
+  <li><a href="https://www.ft.com/content/56d65763-69fe-4756-baf4-c8192b7aadaf?syn-25a6b1a6=1">Financial Times: Anthropic Mythos Unauthorized Access</a></li>
+  <li><a href="https://deepinsightai.io/anthropic-mythos-leak/">Deep Insight AI: Anthropic Mythos Leak Explained</a></li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>

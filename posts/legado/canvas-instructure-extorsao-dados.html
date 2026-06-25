@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas em Crise: Extorsao, Dados e o Custo Real do Caos - raimundopessoa.com</title>
+  <style>
+    :root{color-scheme:light dark;--bg:#f6f1e8;--text:#1f1a14;--muted:#706659;--faint:#988d7e;--line:rgba(57,45,31,.16);--link:#684513}
+    @media (prefers-color-scheme:dark){:root{--bg:#14110e;--text:#efe7db;--muted:#b8ab99;--faint:#8c806f;--line:rgba(239,231,219,.14);--link:#e3c07a}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.72 Georgia,Cambria,"Times New Roman",serif}
+    main{width:min(1020px,calc(100% - 42px));margin:0 auto;padding:52px 0 76px}
+    article{max-width:880px}.back,.meta{font:14px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--faint)}
+    .back{display:inline-block;margin-bottom:42px;color:var(--link);text-decoration:none}.back:hover{text-decoration:underline}
+    h1{font:780 clamp(2.25rem,7vw,5.4rem)/1.06 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0;margin:0 0 20px;max-width:980px}
+    h2,h3,h4{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.18;margin:42px 0 12px}
+    .subtitle{max-width:780px;color:var(--muted);font-size:1.18rem;margin:0 0 20px}.meta{margin:0 0 34px}
+    p,li{max-width:780px;color:var(--muted)}a{color:var(--link)}strong{color:var(--text)}ul{padding-left:1.1rem}
+    figure{margin:30px 0}.line{height:1px;width:min(760px,calc(100% - 34px));margin:36px 0;background:linear-gradient(90deg,transparent,var(--line),rgba(57,45,31,.08),transparent);box-shadow:0 10px 16px rgba(67,49,25,.12)}
+    img{max-width:min(780px,100%);height:auto;border-radius:4px;box-shadow:0 18px 46px rgba(0,0,0,.16)}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../../">← raimundopessoa.com</a>
+    <article>
+      <p class="meta">legado do odisseiadoputo · 13/05/2026 · tech · seguranca · noticias</p>
+      <h1>Canvas em Crise: Extorsao, Dados e o Custo Real do Caos</h1>
+      <p class="subtitle">No caso Instructure, o alerta nao e so tecnico: quando a comunicacao atrasa e a decisao vira pressao, a conta chega para seguranca, operacao e reputacao.</p>
+      <div class="line"></div>
+      <h2>O que esta confirmado no caso Canvas</h2>
+<p>Tem um jeito rapido de transformar incidente real em analise ruim: misturar fato, inferencia e opiniao no mesmo paragrafo.</p>
+<p>Aqui nao.</p>
+<p>Segundo a pagina oficial de incidente da Instructure, houve atividade nao autorizada no Canvas em 29 de abril e atividade adicional em 7 de maio, ligada ao mesmo caminho de comprometimento. A empresa afirma que os campos de dados envolvidos incluem username, e-mail, nome de curso, informacoes de matricula e mensagens. Tambem afirma que dados centrais de aprendizagem (conteudo de curso, entregas e credenciais) nao foram comprometidos.</p>
+<p>No mesmo comunicado, a Instructure diz que fechou um acordo com o ator nao autorizado, recebeu devolucao dos dados e confirmacao digital de destruicao (&quot;shred logs&quot;), e que clientes impactados nao precisam negociar individualmente.</p>
+<h2>O que e inferencia (e precisa ser marcado assim)</h2>
+<p>Se um fornecedor diz publicamente que fez acordo com ator de extorsao, o mercado tende a inferir dinamica de pressao financeira, mesmo sem detalhe juridico completo.</p>
+<p>Se a comunicacao com clientes atrasa em plataforma educacional, as instituicoes podem sofrer incerteza operacional em periodo critico (prova, prazo, fechamento de nota).</p>
+<p>Se o mesmo vetor e reutilizado em curto intervalo, hardening e governanca viram prioridade no mesmo nivel do patch tecnico.</p>
+<h2>Opiniao editorial (separada, sem fantasiar fato)</h2>
+<p>A licao nao e &quot;cloud morreu&quot;. A licao e outra: resposta a incidente sem disciplina de comunicacao vira um segundo incidente.</p>
+<p>Time de seguranca costuma ensaiar contencao e forense. Muita empresa ainda nao ensaia latencia de decisao: quem aprova mensagem, quem fala com cliente, quem banca o texto quando ainda ha coisa em validacao.</p>
+<p>Traduzindo sem teatro corporativo: esse assunto saiu da mesa do SOC e sentou na mesa de crise executiva.</p>
+<h2>Checklist pratico para tecnologia e seguranca</h2>
+<ul>
+  <li>separar update publico em fato, inferencia e validacao pendente;</li>
+  <li>definir dono de crise entre seguranca, juridico, comunicacao e produto;</li>
+  <li>publicar IOC e orientacao acionavel assim que houver verificacao;</li>
+  <li>rodar tabletop de extorsao antes da madrugada real;</li>
+  <li>medir tempo para comunicacao clara, nao so tempo para restaurar servico.</li>
+</ul>
+<p>Hardware nao negocia. Atacante negocia. Governanca decide o tamanho da conta.</p>
+<h4>Fontes e Referencias</h4>
+<ul>
+  <li><a href="https://www.instructure.com/incident_update">Instructure: Security Incident Update &amp; FAQs</a></li>
+  <li><a href="https://thehackernews.com/2026/05/instructure-reaches-ransom-agreement.html">The Hacker News: Instructure Reaches Ransom Agreement with ShinyHunters</a></li>
+  <li><a href="https://www.bleepingcomputer.com/news/security/instructure-reaches-agreement-with-shinyhunters-to-stop-data-leak/">BleepingComputer: Instructure reaches &#39;agreement&#39; with ShinyHunters</a></li>
+  <li><a href="https://www.cisoadvisor.com.br/universidades-negociam-para-evitar-vazamento-de-dados/">CISO Advisor: Universidades negociam para evitar vazamento de dados</a></li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>

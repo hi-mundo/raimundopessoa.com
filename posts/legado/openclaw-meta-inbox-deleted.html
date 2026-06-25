@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diretora de Segurança da Meta Tem o E-mail Apagado Pela Própria IA - raimundopessoa.com</title>
+  <style>
+    :root{color-scheme:light dark;--bg:#f6f1e8;--text:#1f1a14;--muted:#706659;--faint:#988d7e;--line:rgba(57,45,31,.16);--link:#684513}
+    @media (prefers-color-scheme:dark){:root{--bg:#14110e;--text:#efe7db;--muted:#b8ab99;--faint:#8c806f;--line:rgba(239,231,219,.14);--link:#e3c07a}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.72 Georgia,Cambria,"Times New Roman",serif}
+    main{width:min(1020px,calc(100% - 42px));margin:0 auto;padding:52px 0 76px}
+    article{max-width:880px}.back,.meta{font:14px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--faint)}
+    .back{display:inline-block;margin-bottom:42px;color:var(--link);text-decoration:none}.back:hover{text-decoration:underline}
+    h1{font:780 clamp(2.25rem,7vw,5.4rem)/1.06 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0;margin:0 0 20px;max-width:980px}
+    h2,h3,h4{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.18;margin:42px 0 12px}
+    .subtitle{max-width:780px;color:var(--muted);font-size:1.18rem;margin:0 0 20px}.meta{margin:0 0 34px}
+    p,li{max-width:780px;color:var(--muted)}a{color:var(--link)}strong{color:var(--text)}ul{padding-left:1.1rem}
+    figure{margin:30px 0}.line{height:1px;width:min(760px,calc(100% - 34px));margin:36px 0;background:linear-gradient(90deg,transparent,var(--line),rgba(57,45,31,.08),transparent);box-shadow:0 10px 16px rgba(67,49,25,.12)}
+    img{max-width:min(780px,100%);height:auto;border-radius:4px;box-shadow:0 18px 46px rgba(0,0,0,.16)}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../../">← raimundopessoa.com</a>
+    <article>
+      <p class="meta">legado do odisseiadoputo · 26/04/2026 · tech · seguranca · noticias</p>
+      <h1>Diretora de Segurança da Meta Tem o E-mail Apagado Pela Própria IA</h1>
+      <p class="subtitle">A ironia do alinhamento: quando a janela de contexto de um agente autônomo estoura, a primeira coisa que ele esquece é a regra de &#39;não apertar o botão vermelho&#39;.</p>
+      <div class="line"></div>
+      <h2>O Senso de Humor do Universo</h2>
+<p>O universo da tecnologia tem um senso de humor espetacular e, hoje, ele escolheu rir da cara da Meta. A vítima da humilhação cibernética não foi a tia do Zap que clica em boleto falso. Foi Summer Yue, a <em>Diretora de Alinhamento e Segurança</em> do Superintelligence Lab da empresa do Mark Zuckerberg. O trabalho da mulher é literalmente garantir que a IA não destrua o mundo.</p>
+<p>E o que a IA fez? Destruiu a caixa de e-mails dela.</p>
+<p>A diretora botou um agente autônomo (rodando o famigerado OpenClaw) pra limpar a bagunça do Gmail dela. E, como manda o manual da pessoa que ganha meio milhão de dólares por ano pra proteger sistemas, ela colocou uma regra de ouro no cérebro do robô: <em>&quot;Confirme comigo antes de deletar qualquer coisa.&quot;</em></p>
+<p>Adivinha? A IA ignorou o prompt e meteu o louco. Começou a obliterar centenas de e-mails de trabalho e da vida pessoal dela numa velocidade que não dava pra acompanhar. A própria diretora tuitou que teve que &quot;correr pro Mac Mini como se estivesse desarmando uma bomba&quot; pra arrancar a máquina da tomada.</p>
+<h2>Amnésia de Robô e o Famoso &#39;Compaction&#39;</h2>
+<p>Como o robô que ia nos salvar do apocalipse virou o estagiário vingativo que apaga o banco de dados? A culpa é de uma gambiarra arquitetural patética chamada <em>memory compaction</em>.</p>
+<p>A caixa de entrada da diretora era tão entupida de lixo que o agente autônomo leu até a memória estourar. O limite de tokens da &quot;janela de contexto&quot; do LLM bateu no teto. Para não travar, a infraestrutura da máquina tenta espremer o histórico, jogar fora o que não importa e continuar trabalhando.</p>
+<p>E o que foi a primeira coisa que a inteligência artificial descartou pra liberar espaço na memória? A maldita regra de segurança que dizia <em>&quot;não aperte o botão de apagar sem a minha permissão&quot;</em>.</p>
+<p>O robô sofreu amnésia temporária, esqueceu as diretrizes éticas e foi fazer o trabalho dele: apagar arquivo no escuro.</p>
+<h2>Como Sobreviver ao &#39;Compaction&#39;</h2>
+<p>A piada é boa, mas o que a engenharia aprende com isso? Se você está planejando colocar agentes autônomos (seja OpenClaw, AutoGPT ou qualquer outro) para interagir com os dados da sua empresa, a arquitetura muda.</p>
+<p>1. <strong>A regra de ouro não fica no Prompt:</strong> Segurança baseada em <em>system prompt</em> (&quot;nunca apague sem perguntar&quot;) é frágil. Como vimos, quando a janela de tokens (contexto) enche, o modelo esmaga o histórico e joga as regras textuais fora. 2. <strong>A regra fica na Camada de Execução (Tooling):</strong> O limite de segurança tem que estar hardcoded na ferramenta (a API) que o agente chama. Se a IA vai apagar um e-mail, a função no código (Python/Go) que recebe a requisição de `delete` é que deve validar se existe aprovação explícita do usuário no banco de dados. O LLM propõe a ação, mas o código de execução tradicional barra se não houver permissão. 3. <strong>Leia-Apenas (Read-Only) por Padrão:</strong> Nunca dê credenciais com privilégio de escrita irrestrita para uma rede neural. Se o objetivo era classificar e-mails, a credencial do agente no Gmail deveria ter permissão apenas para mover para pastas ou colocar rótulos. O privilégio de exclusão física nunca deveria estar no escopo da API key que o robô usava.</p>
+<p>Não dê poder de destruir banco de dados para um robô que sofre de alzheimer operacional. Deixe que a IA decida o que deve ser feito, mas garanta que o código burro, engessado e tradicional seja a trava física antes da execução.</p>
+<h4>Fontes e Referências</h4>
+<ul>
+  <li><a href="https://www.404media.co/meta-director-of-ai-safety-allows-ai-agent-to-accidentally-delete-her-inbox/">404 Media: Meta Director of AI Safety Allows AI Agent to Accidentally Delete Her Inbox</a></li>
+  <li><a href="https://timesofindia.indiatimes.com/technology/tech-news/meta-director-says-openclaw-ai-agent-deleted-her-entire-inbox-shares-screenshots-of-conversation-with-ai-bot/articleshow/128746253.cms">Times of India: Meta director says OpenClaw AI agent deleted her entire inbox</a></li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>
